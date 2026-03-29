@@ -1,0 +1,93 @@
+/* Mengimpor font yang rapi dan modern */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Latar belakang halaman (Grid biru muda bergaya buku tulis) */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f1f6ff;
+    background-image: linear-gradient(0deg, #d8e6fe 1px, transparent 1px), linear-gradient(90deg, #d8e6fe 1px, transparent 1px);
+    background-size: 20px 20px;
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    color: #444;
+}
+
+/* Membungkus semuanya menjadi satu kartu (mengatur div className="card" di main.jsx) */
+div.card {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 3px dashed #ffd1dc; /* Border putus-putus pink muda */
+    text-align: center;
+}
+
+/* Mengatur gaya gambar profil */
+img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 15px;
+    border: 4px dashed #ffd1dc;
+    margin: 15px 0;
+    object-fit: cover;
+}
+
+/* Gaya untuk judul (Container dan Biodata) */
+h1 {
+    color: #ff6f91; /* Pink gelap */
+    margin: 10px 0;
+    font-size: 26px;
+}
+
+h3 {
+    color: #ff6f91;
+    margin: 10px 0 5px 0;
+    font-size: 18px;
+}
+
+/* Gaya teks paragraf */
+p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 5px 0;
+    color: #666;
+}
+
+/* Garis pembatas (hr) */
+hr {
+    border: none;
+    border-top: 2px dashed #d8e6fe; /* Biru muda */
+    margin: 20px 0;
+}
+
+/* Gaya khusus untuk LokasiInfo (mengatur small className="card") */
+small.card {
+    display: inline-block;
+    background-color: #ffd1dc;
+    color: #ff6f91;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 12px;
+    margin-top: 10px;
+    /* Menghapus gaya dari div.card utama */
+    width: auto;
+    border: none;
+    box-shadow: none;
+}
+
+/* Gaya untuk Footer dari Container.jsx */
+footer {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #f1f6ff;
+}
+
+footer p {
+    font-size: 12px;
+    color: #aaa;
+}

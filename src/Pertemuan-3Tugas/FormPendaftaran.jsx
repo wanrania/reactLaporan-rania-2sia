@@ -11,9 +11,9 @@ export default function FormPendaftaran() {
     metode: "",
   });
 
-  const [error, setError] = useState({});
-  const [isValid, setIsValid] = useState(false);
-  const [hasil, setHasil] = useState(null);
+  const [error, setError] = useState({});           // Menyimpan pesan error tiap field
+  const [isValid, setIsValid] = useState(false);    // Menyimpan status validasi form
+  const [hasil, setHasil] = useState(null);     // Menyimpan hasil booking jika valid
 
   const handleChange = (e) => {
     setForm({

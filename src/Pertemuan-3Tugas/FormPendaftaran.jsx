@@ -82,7 +82,7 @@ export default function FormPendaftaran() {
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-6 rounded-lg shadow-lg w-96"
+        className="bg-pink-100 p-6 rounded-lg shadow-lg w-96"
       >
         <h2 className="text-xl font-bold text-center mb-4">
           Booking Konsultasi Mentoring
@@ -145,7 +145,7 @@ export default function FormPendaftaran() {
 
         {/* BUTTON MUNCUL HANYA JIKA VALID */}
         {isValid && (
-          <button className="w-full bg-green-500 text-white p-2 rounded mt-2 hover:bg-green-600">
+          <button className="w-full bg-green-500 text-white p-2 rounded mt-3 hover:bg-green-600">
             Booking
           </button>
         )}

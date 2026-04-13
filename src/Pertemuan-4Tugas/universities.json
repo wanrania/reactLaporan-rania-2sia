@@ -1,0 +1,302 @@
+[
+  {
+    "id": 1,
+    "name": "Universitas Indonesia",
+    "description": "Universitas negeri tertua dan terbesar di Indonesia dengan reputasi akademik kelas dunia",
+    "location": "Depok, Jawa Barat",
+    "establishedYear": 1849,
+    "image": "https://cdn-web.ruangguru.com/file-uploader/9b6a22e7-8595-4786-93e7-ad146450ce19.jpg?w=400&h=300&fit=crop",
+    "details": {
+      "ranking": "Top 1 Indonesia",
+      "totalStudents": 45000,
+      "website": "https://www.ui.ac.id"
+    },
+    "programs": ["Kedokteran", "Hukum", "Ekonomi", "Teknik", "Psikologi"],
+    "faculties": ["Fakultas Kedokteran", "FHUI", "FEB", "FT", "Fisip"]
+  },
+  {
+    "id": 2,
+    "name": "Institut Teknologi Bandung",
+    "description": "Pusat keunggulan pendidikan teknik dan sains di Indonesia",
+    "location": "Bandung, Jawa Barat",
+    "establishedYear": 1959,
+    "image": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400&h=300&fit=crop",
+    "details": {
+      "ranking": "Top 2 Indonesia",
+      "totalStudents": 23000,
+      "website": "https://www.itb.ac.id"
+    },
+    "programs": ["Teknik Sipil", "Teknik Informatika", "Arsitektur", "Teknik Kimia", "Matematika"],
+    "faculties": ["FTI", "FTTM", "FTE", "FSRD", "FMIPA"]
+  },
+  {
+    "id": 3,
+    "name": "Universitas Gadjah Mada",
+    "description": "Universitas tertua di Indonesia dengan tradisi akademik yang kuat",
+    "location": "Yogyakarta, DI Yogyakarta",
+    "establishedYear": 1949,
+    "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=300&fit=crop",
+    "details": {
+      "ranking": "Top 3 Indonesia",
+      "totalStudents": 55000,
+      "website": "https://ugm.ac.id"
+    },
+    "programs": ["Kedokteran", "Pertanian", "Hukum", "Ekonomi", "Teknik"],
+    "faculties": ["FK", "FP", "FH", "FEB", "FT"]
+  },
+  {
+    "id": 4,
+    "name": "Institut Pertanian Bogor",
+    "description": "Universitas spesialisasi pertanian dan biosains terbaik di Asia Tenggara",
+    "location": "Bogor, Jawa Barat",
+    "establishedYear": 1963,
+    "image": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop",
+    "details": {
+      "ranking": "Top 4 Indonesia",
+      "totalStudents": 25000,
+      "website": "https://ipb.ac.id"
+    },
+    "programs": ["Agronomi", "Peternakan", "Kehutanan", "Teknologi Pangan", "Biologi"],
+    "faculties": ["Fapet", "Fahutan", "Fateta", "Fpp", "Fmipa"]
+  },
+  {
+    "id": 5,
+    "name": "Universitas Airlangga",
+    "description": "Universitas terkemuka di Jawa Timur dengan fokus kesehatan dan sains",
+    "location": "Surabaya, Jawa Timur",
+    "establishedYear": 1954,
+    "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop",
+    "details": {
+      "ranking": "Top 5 Indonesia",
+      "totalStudents": 32000,
+      "website": "https://unair.ac.id"
+    },
+    "programs": ["Kedokteran", "Keperawatan", "Farmasi", "Gizi", "Kedokteran Gigi"],
+    "faculties": ["FK", "FH", "FEB", "FT", "Fisip"]
+  },
+  {
+    "id": 6,
+    "name": "Universitas Padjadjaran",
+    "description": "Universitas komprehensif dengan kampus modern di Jawa Barat",
+    "location": "Bandung & Sumedang, Jawa Barat",
+    "establishedYear": 1957,
+    "image": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=300&fit=crop",
+    "details": {
+      "ranking": "Top 6 Indonesia",
+      "totalStudents": 38000,
+      "website": "https://unpad.ac.id"
+    },
+    "programs": ["Kedokteran", "Hukum", "Ekonomi", "Psikologi", "Teknik"],
+    "faculties": ["FK", "FH", "FEB", "Fpsi", "FT"]
+  },
+  {
+    "id": 7,
+    "name": "Institut Teknologi Sepuluh Nopember",
+    "description": "Pusat inovasi teknologi dan rekayasa di Surabaya",
+    "location": "Surabaya, Jawa Timur",
+    "establishedYear": 1960,
+    "image": "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=300&fit=crop",
+    "details": {
+      "ranking": "Top 7 Indonesia",
+      "totalStudents": 18000,
+      "website": "https://its.ac.id"
+    },
+    "programs": ["Teknik Informatika", "Teknik Mesin", "Arsitektur", "Teknik Elektro", "Desain"],
+    "faculties": ["FTI", "FTMD", "FTE", "FTSL", "FDS"]
+  },
+  {
+    "id": 8,
+    "name": "Universitas Brawijaya",
+    "description": "Universitas besar di Malang dengan fokus pembangunan berkelanjutan",
+    "location": "Malang, Jawa Timur",
+    "establishedYear": 1963,
+    "image": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=300&fit=crop",
+    "details": {
+      "ranking": "Top 8 Indonesia",
+      "totalStudents": 60000,
+      "website": "https://ub.ac.id"
+    },
+    "programs": ["Pertanian", "Teknik", "Ekonomi", "Hukum", "Kedokteran"],
+    "faculties": ["Fapet", "FT", "FEB", "FH", "FK"]
+  },
+  {
+    "id": 9,
+    "name": "Universitas Diponegoro",
+    "description": "Universitas negeri terkemuka di Jawa Tengah dengan kampus modern",
+    "location": "Semarang, Jawa Tengah",
+    "establishedYear": 1957,
+    "image": "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=300&fit=crop",
+    "details": {
+      "ranking": "Top 9 Indonesia",
+      "totalStudents": 42000,
+      "website": "https://undip.ac.id"
+    },
+    "programs": ["Teknik", "Kedokteran", "Hukum", "Ekonomi", "Perikanan"],
+    "faculties": ["FT", "FK", "FH", "FEB", "Fpi"]
+  },
+  {
+    "id": 10,
+    "name": "Universitas Hasanuddin",
+    "description": "Universitas terbesar di Indonesia Timur dengan fokus maritim",
+    "location": "Makassar, Sulawesi Selatan",
+    "establishedYear": 1951,
+    "image": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop",
+    "details": {
+      "ranking": "Top 10 Indonesia",
+      "totalStudents": 41000,
+      "website": "https://unhas.ac.id"
+    },
+    "programs": ["Kedokteran", "Teknik", "Hukum", "Ekonomi", "Kelautan"],
+    "faculties": ["FK", "FT", "FH", "FEB", "Fikp"]
+  },
+  {
+    "id": 11,
+    "name": "Universitas Negeri Yogyakarta",
+    "description": "Pusat pendidikan guru terbaik di Indonesia",
+    "location": "Yogyakarta, DI Yogyakarta",
+    "establishedYear": 1964,
+    "image": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&h=300&fit=crop",
+    "details": {
+      "ranking": "Top 11 Indonesia",
+      "totalStudents": 35000,
+      "website": "https://uny.ac.id"
+    },
+    "programs": ["Pendidikan Guru", "Bahasa", "Matematika", "Seni", "Teknologi Pendidikan"],
+    "faculties": ["FIP", "FBS", "FMIPA", "FT", "FSD"]
+  },
+  {
+    "id": 12,
+    "name": "Universitas Andalas",
+    "description": "Universitas tertua dan terbesar di Sumatera Barat",
+    "location": "Padang, Sumatera Barat",
+    "establishedYear": 1955,
+    "image": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=400&h=300&fit=crop",
+    "details": {
+      "ranking": "Top 12 Indonesia",
+      "totalStudents": 28000,
+      "website": "https://unand.ac.id"
+    },
+    "programs": ["Kedokteran", "Teknik", "Pertanian", "Ekonomi", "Hukum"],
+    "faculties": ["FK", "FT", "Fapet", "FEB", "FH"]
+  },
+  {
+    "id": 13,
+    "name": "Universitas Sumatera Utara",
+    "description": "Universitas komprehensif dengan kampus hijau di Medan",
+    "location": "Medan, Sumatera Utara",
+    "establishedYear": 1952,
+    "image": "https://images.unsplash.com/photo-1518546305927-5a555a7c6c20?w=400&h=300&fit=crop",
+    "details": {
+      "ranking": "Top 13 Indonesia",
+      "totalStudents": 37000,
+      "website": "https://usu.ac.id"
+    },
+    "programs": ["Kedokteran", "Ekonomi", "Hukum", "Pertanian", "Teknik"],
+    "faculties": ["FK", "FEB", "FH", "Fapet", "FT"]
+  },
+  {
+    "id": 14,
+    "name": "Universitas Lampung",
+    "description": "Universitas negeri dengan fokus pembangunan Lampung",
+    "location": "Bandar Lampung, Lampung",
+    "establishedYear": 1965,
+    "image": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=300&fit=crop",
+    "details": {
+      "ranking": "Top 14 Indonesia",
+      "totalStudents": 32000,
+      "website": "https://unila.ac.id"
+    },
+    "programs": ["Pertanian", "Teknik", "Ekonomi", "Hukum", "Kedokteran"],
+    "faculties": ["Fapet", "FT", "FEB", "FH", "FK"]
+  },
+  {
+    "id": 15,
+    "name": "Universitas Jember",
+    "description": "Universitas dengan tradisi akademik kuat di Jawa Timur",
+    "location": "Jember, Jawa Timur",
+    "establishedYear": 1964,
+    "image": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop",
+    "details": {
+      "ranking": "Top 15 Indonesia",
+      "totalStudents": 29000,
+      "website": "https://unej.ac.id"
+    },
+    "programs": ["Kedokteran", "Pertanian", "Teknik", "Ekonomi", "Hukum"],
+    "faculties": ["FK", "Fapet", "FT", "FEB", "FH"]
+  },
+  {
+    "id": 16,
+    "name": "Universitas Sam Ratulangi",
+    "description": "Universitas terkemuka di Sulawesi Utara",
+    "location": "Manado, Sulawesi Utara",
+    "establishedYear": 1965,
+    "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=300&fit=crop",
+    "details": {
+      "ranking": "Top 16 Indonesia",
+      "totalStudents": 26000,
+      "website": "https://unsrat.ac.id"
+    },
+    "programs": ["Kedokteran", "Teknik", "Ekonomi", "Hukum", "Perikanan"],
+    "faculties": ["FK", "FT", "FEB", "FH", "Fpi"]
+  },
+  {
+    "id": 17,
+    "name": "Universitas Mulawarman",
+    "description": "Universitas negeri terbesar di Kalimantan Timur",
+    "location": "Samarinda, Kalimantan Timur",
+    "establishedYear": 1962,
+    "image": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&h=300&fit=crop",
+    "details": {
+      "ranking": "Top 17 Indonesia",
+      "totalStudents": 24000,
+      "website": "https://unmul.ac.id"
+    },
+    "programs": ["Pertanian", "Teknik", "Kedokteran", "Ekonomi", "Hukum"],
+    "faculties": ["Fapet", "FT", "FK", "FEB", "FH"]
+  },
+  {
+    "id": 18,
+    "name": "Universitas Sriwijaya",
+    "description": "Pusat pendidikan tinggi di Sumatera Selatan",
+    "location": "Palembang, Sumatera Selatan",
+    "establishedYear": 1960,
+    "image": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop",
+    "details": {
+      "ranking": "Top 18 Indonesia",
+      "totalStudents": 31000,
+      "website": "https://unsri.ac.id"
+    },
+    "programs": ["Kedokteran", "Teknik", "Hukum", "Ekonomi", "Pertanian"],
+    "faculties": ["FK", "FT", "FH", "FEB", "Fapet"]
+  },
+  {
+    "id": 19,
+    "name": "Universitas Jambi",
+    "description": "Universitas negeri dengan fokus pembangunan Jambi",
+    "location": "Jambi, Jambi",
+    "establishedYear": 1963,
+    "image": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=400&h=300&fit=crop",
+    "details": {
+      "ranking": "Top 19 Indonesia",
+      "totalStudents": 22000,
+      "website": "https://unja.ac.id"
+    },
+    "programs": ["Pertanian", "Teknik", "Ekonomi", "Hukum", "Kedokteran"],
+    "faculties": ["Fapet", "FT", "FEB", "FH", "FK"]
+  },
+  {
+    "id": 20,
+    "name": "Universitas Bengkulu",
+    "description": "Universitas negeri dengan kampus indah di Bengkulu",
+    "location": "Bengkulu, Bengkulu",
+    "establishedYear": 1960,
+    "image": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=300&fit=crop",
+    "details": {
+      "ranking": "Top 20 Indonesia",
+      "totalStudents": 21000,
+      "website": "https://ub.ac.id"
+    },
+    "programs": ["Pertanian", "Kedokteran", "Teknik", "Ekonomi", "Hukum"],
+    "faculties": ["Fapet", "FK", "FT", "FEB", "FH"]
+  }
+]

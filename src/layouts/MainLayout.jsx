@@ -4,14 +4,26 @@ import Sidebar from "../components/Sidebar";
 
 export default function MainLayout() {
   return (
-    <div id="app-container" className="min-h-screen flex bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-      <div id="layout-wrapper" className="flex flex-row flex-1">
-        <Sidebar />
-        <div id="main-content" className="flex-1 p-4">
-          <Header/>
+    // Container utama: Background abu-abu sangat terang, teks gelap, tinggi 1 layar penuh
+    <div id="app-container" className="flex h-screen w-full bg-slate-50 font-sans text-slate-900 overflow-hidden">
+      
+      {/* Sidebar Section */}
+      <Sidebar />
 
-          <Outlet/>
-        </div>
+      {/* Main Content Wrapper */}
+      <div id="layout-wrapper" className="flex flex-col flex-1 min-w-0 overflow-hidden">
+        
+        {/* Header Section */}
+        <Header />
+
+        {/* Outlet / Halaman Konten yang bisa di-scroll */}
+        <main id="main-content" className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+          {/* Pembungkus max-width agar konten tidak terlalu melebar di layar super besar (opsional) */}
+          <div className="mx-auto max-w-[1600px]">
+            <Outlet />
+          </div>
+        </main>
+        
       </div>
     </div>
   );

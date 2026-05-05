@@ -6,39 +6,37 @@ export default function Customers() {
   const [openModal, setOpenModal] = useState(false);
 
   const [customers, setCustomers] = useState([
-  { id: "C001", name: "Andi Saputra", email: "andi@mail.com", phone: "081234567001", loyalty: "Gold" },
-  { id: "C002", name: "Budi Santoso", email: "budi@mail.com", phone: "081234567002", loyalty: "Silver" },
-  { id: "C003", name: "Citra Lestari", email: "citra@mail.com", phone: "081234567003", loyalty: "Bronze" },
-  { id: "C004", name: "Dewi Anggraini", email: "dewi@mail.com", phone: "081234567004", loyalty: "Gold" },
-  { id: "C005", name: "Eko Prasetyo", email: "eko@mail.com", phone: "081234567005", loyalty: "Silver" },
-  { id: "C006", name: "Fajar Hidayat", email: "fajar@mail.com", phone: "081234567006", loyalty: "Bronze" },
-  { id: "C007", name: "Gina Marlina", email: "gina@mail.com", phone: "081234567007", loyalty: "Gold" },
-  { id: "C008", name: "Hadi Wijaya", email: "hadi@mail.com", phone: "081234567008", loyalty: "Silver" },
-  { id: "C009", name: "Indah Sari", email: "indah@mail.com", phone: "081234567009", loyalty: "Bronze" },
-  { id: "C010", name: "Joko Susilo", email: "joko@mail.com", phone: "081234567010", loyalty: "Gold" },
-
-  { id: "C011", name: "Kiki Amelia", email: "kiki@mail.com", phone: "081234567011", loyalty: "Silver" },
-  { id: "C012", name: "Lukman Hakim", email: "lukman@mail.com", phone: "081234567012", loyalty: "Bronze" },
-  { id: "C013", name: "Maya Putri", email: "maya@mail.com", phone: "081234567013", loyalty: "Gold" },
-  { id: "C014", name: "Nanda Pratama", email: "nanda@mail.com", phone: "081234567014", loyalty: "Silver" },
-  { id: "C015", name: "Oki Setiawan", email: "oki@mail.com", phone: "081234567015", loyalty: "Bronze" },
-  { id: "C016", name: "Putri Ayu", email: "putri@mail.com", phone: "081234567016", loyalty: "Gold" },
-  { id: "C017", name: "Qori Ahmad", email: "qori@mail.com", phone: "081234567017", loyalty: "Silver" },
-  { id: "C018", name: "Rina Kurnia", email: "rina@mail.com", phone: "081234567018", loyalty: "Bronze" },
-  { id: "C019", name: "Sandi Nugroho", email: "sandi@mail.com", phone: "081234567019", loyalty: "Gold" },
-  { id: "C020", name: "Tina Yuliana", email: "tina@mail.com", phone: "081234567020", loyalty: "Silver" },
-
-  { id: "C021", name: "Umar Faruq", email: "umar@mail.com", phone: "081234567021", loyalty: "Bronze" },
-  { id: "C022", name: "Vina Melati", email: "vina@mail.com", phone: "081234567022", loyalty: "Gold" },
-  { id: "C023", name: "Wahyu Hidayat", email: "wahyu@mail.com", phone: "081234567023", loyalty: "Silver" },
-  { id: "C024", name: "Xena Putri", email: "xena@mail.com", phone: "081234567024", loyalty: "Bronze" },
-  { id: "C025", name: "Yudi Santika", email: "yudi@mail.com", phone: "081234567025", loyalty: "Gold" },
-  { id: "C026", name: "Zahra Nabila", email: "zahra@mail.com", phone: "081234567026", loyalty: "Silver" },
-  { id: "C027", name: "Agus Salim", email: "agus@mail.com", phone: "081234567027", loyalty: "Bronze" },
-  { id: "C028", name: "Bella Sari", email: "bella@mail.com", phone: "081234567028", loyalty: "Gold" },
-  { id: "C029", name: "Chandra Wijaya", email: "chandra@mail.com", phone: "081234567029", loyalty: "Silver" },
-  { id: "C030", name: "Dina Kartika", email: "dina@mail.com", phone: "081234567030", loyalty: "Bronze" }
-]);
+    { id: "C001", name: "Andi Saputra", email: "andi@mail.com", phone: "081234567001", loyalty: "Gold" },
+    { id: "C002", name: "Budi Santoso", email: "budi@mail.com", phone: "081234567002", loyalty: "Silver" },
+    { id: "C003", name: "Citra Lestari", email: "citra@mail.com", phone: "081234567003", loyalty: "Bronze" },
+    { id: "C004", name: "Dewi Anggraini", email: "dewi@mail.com", phone: "081234567004", loyalty: "Gold" },
+    { id: "C005", name: "Eko Prasetyo", email: "eko@mail.com", phone: "081234567005", loyalty: "Silver" },
+    { id: "C006", name: "Fajar Hidayat", email: "fajar@mail.com", phone: "081234567006", loyalty: "Bronze" },
+    { id: "C007", name: "Gina Marlina", email: "gina@mail.com", phone: "081234567007", loyalty: "Gold" },
+    { id: "C008", name: "Hadi Wijaya", email: "hadi@mail.com", phone: "081234567008", loyalty: "Silver" },
+    { id: "C009", name: "Indah Sari", email: "indah@mail.com", phone: "081234567009", loyalty: "Bronze" },
+    { id: "C010", name: "Joko Susilo", email: "joko@mail.com", phone: "081234567010", loyalty: "Gold" },
+    { id: "C011", name: "Kiki Amelia", email: "kiki@mail.com", phone: "081234567011", loyalty: "Silver" },
+    { id: "C012", name: "Lukman Hakim", email: "lukman@mail.com", phone: "081234567012", loyalty: "Bronze" },
+    { id: "C013", name: "Maya Putri", email: "maya@mail.com", phone: "081234567013", loyalty: "Gold" },
+    { id: "C014", name: "Nanda Pratama", email: "nanda@mail.com", phone: "081234567014", loyalty: "Silver" },
+    { id: "C015", name: "Oki Setiawan", email: "oki@mail.com", phone: "081234567015", loyalty: "Bronze" },
+    { id: "C016", name: "Putri Ayu", email: "putri@mail.com", phone: "081234567016", loyalty: "Gold" },
+    { id: "C017", name: "Qori Ahmad", email: "qori@mail.com", phone: "081234567017", loyalty: "Silver" },
+    { id: "C018", name: "Rina Kurnia", email: "rina@mail.com", phone: "081234567018", loyalty: "Bronze" },
+    { id: "C019", name: "Sandi Nugroho", email: "sandi@mail.com", phone: "081234567019", loyalty: "Gold" },
+    { id: "C020", name: "Tina Yuliana", email: "tina@mail.com", phone: "081234567020", loyalty: "Silver" },
+    { id: "C021", name: "Umar Faruq", email: "umar@mail.com", phone: "081234567021", loyalty: "Bronze" },
+    { id: "C022", name: "Vina Melati", email: "vina@mail.com", phone: "081234567022", loyalty: "Gold" },
+    { id: "C023", name: "Wahyu Hidayat", email: "wahyu@mail.com", phone: "081234567023", loyalty: "Silver" },
+    { id: "C024", name: "Xena Putri", email: "xena@mail.com", phone: "081234567024", loyalty: "Bronze" },
+    { id: "C025", name: "Yudi Santika", email: "yudi@mail.com", phone: "081234567025", loyalty: "Gold" },
+    { id: "C026", name: "Zahra Nabila", email: "zahra@mail.com", phone: "081234567026", loyalty: "Silver" },
+    { id: "C027", name: "Agus Salim", email: "agus@mail.com", phone: "081234567027", loyalty: "Bronze" },
+    { id: "C028", name: "Bella Sari", email: "bella@mail.com", phone: "081234567028", loyalty: "Gold" },
+    { id: "C029", name: "Chandra Wijaya", email: "chandra@mail.com", phone: "081234567029", loyalty: "Silver" },
+    { id: "C030", name: "Dina Kartika", email: "dina@mail.com", phone: "081234567030", loyalty: "Bronze" }
+  ]);
 
   const [form, setForm] = useState({
     name: "",
@@ -46,6 +44,24 @@ export default function Customers() {
     phone: "",
     loyalty: "Bronze"
   });
+
+  // 🔥 STATE TAMBAHAN UNTUK PENCARIAN & PAGINATION
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(5);
+  const [search, setSearch] = useState("");
+
+  // 🔍 FILTER
+  const filteredCustomers = customers.filter((c) =>
+    c.name.toLowerCase().includes(search.toLowerCase()) ||
+    c.email.toLowerCase().includes(search.toLowerCase()) ||
+    c.phone.includes(search)
+  );
+
+  // 📄 PAGINATION
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentData = filteredCustomers.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(filteredCustomers.length / itemsPerPage);
 
   const handleAdd = () => {
     const newCustomer = {
@@ -57,97 +73,180 @@ export default function Customers() {
     setOpenModal(false);
   };
 
-  // Badge warna bengkel 🔧
+  // Badge warna bengkel (Disesuaikan untuk Light Mode) 🔧
   const getLoyaltyBadge = (level) => {
     switch (level) {
       case "Gold":
-        return "bg-yellow-500/20 text-yellow-400 border-yellow-500/30";
+        return "bg-amber-50 text-amber-600 border-amber-200";
       case "Silver":
-        return "bg-slate-500/20 text-slate-300 border-slate-500/30";
+        return "bg-slate-100 text-slate-600 border-slate-200";
       case "Bronze":
-        return "bg-orange-500/20 text-orange-400 border-orange-500/30";
+        return "bg-orange-50 text-orange-600 border-orange-200";
       default:
-        return "bg-blue-500/20 text-blue-400 border-blue-500/30";
+        return "bg-blue-50 text-blue-600 border-blue-200";
     }
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white pb-10">
+    <div className="min-h-screen bg-slate-50 text-slate-900 pb-10">
 
       {/* HEADER */}
       <div className="px-6 pt-6">
         <PageHeader title="Customers Bengkel" breadcrumb={["Dashboard", "Customers"]}>
           <button
             onClick={() => setOpenModal(true)}
-            className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 
-            text-white px-5 py-2.5 rounded-lg flex items-center gap-2 font-medium shadow-lg transition"
+            className="bg-red-500 hover:bg-red-600 text-white px-5 py-2.5 rounded-xl flex items-center gap-2 shadow-sm shadow-red-500/20 transition-all hover:-translate-y-0.5 active:scale-95 font-medium"
           >
-            <FaPlus /> Tambah Customer
+            <FaPlus className="text-sm" /> Tambah Customer
           </button>
         </PageHeader>
       </div>
 
+      {/* SEARCH & LIMIT (Baru ditambahkan) */}
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 px-6 pt-2 pb-6">
+        <div className="flex items-center gap-2 text-sm text-slate-600 font-medium">
+          Tampilkan
+          <select
+            value={itemsPerPage}
+            onChange={(e) => {
+              setItemsPerPage(Number(e.target.value));
+              setCurrentPage(1);
+            }}
+            className="bg-white border border-slate-200 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-colors cursor-pointer"
+          >
+            <option value={5}>5</option>
+            <option value={10}>10</option>
+            <option value={20}>20</option>
+          </select>
+          entri
+        </div>
+
+        <input
+          type="text"
+          placeholder="Cari nama, email, atau no HP..."
+          value={search}
+          onChange={(e) => {
+            setSearch(e.target.value);
+            setCurrentPage(1);
+          }}
+          className="bg-white border border-slate-200 px-4 py-2.5 rounded-xl text-sm outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all w-full sm:w-72 shadow-sm"
+        />
+      </div>
+
       {/* TABLE */}
-      <div className="p-6">
-        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden shadow-lg">
-          <div className="overflow-x-auto">
-            <table className="w-full text-left">
+      <div className="px-6">
+        <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+          <div className="overflow-x-auto max-h-[500px]">
+            <table className="w-full text-left border-collapse table-auto">
               
               {/* HEAD */}
-              <thead className="bg-white/5 text-slate-300 text-sm uppercase">
+              <thead className="bg-slate-50 text-slate-600 uppercase text-xs font-bold tracking-wider border-b border-slate-200 sticky top-0 z-10">
                 <tr>
-                  <th className="px-6 py-4">ID</th>
-                  <th className="px-6 py-4">Nama</th>
+                  <th className="px-6 py-4 w-[100px]">ID</th>
+                  <th className="px-6 py-4">Nama Pelanggan</th>
                   <th className="px-6 py-4">Email</th>
                   <th className="px-6 py-4">No HP</th>
-                  <th className="px-6 py-4 text-center">Level</th>
+                  <th className="px-6 py-4 text-center w-[120px]">Level</th>
                 </tr>
               </thead>
 
               {/* BODY */}
-              <tbody className="divide-y divide-white/10 text-sm">
-                {customers.map((c) => (
-                  <tr key={c.id} className="hover:bg-white/5 transition">
-                    <td className="px-6 py-4 font-semibold">{c.id}</td>
-                    <td className="px-6 py-4 flex items-center gap-2">
-                      <FaUserCog className="text-orange-400" />
-                      {c.name}
-                    </td>
-                    <td className="px-6 py-4 text-slate-400">{c.email}</td>
-                    <td className="px-6 py-4">{c.phone}</td>
-                    <td className="px-6 py-4 text-center">
-                      <span className={`px-3 py-1 text-xs rounded-full border ${getLoyaltyBadge(c.loyalty)}`}>
-                        {c.loyalty}
-                      </span>
+              <tbody className="divide-y divide-slate-100 text-sm">
+                {currentData.length > 0 ? (
+                  currentData.map((c) => (
+                    <tr key={c.id} className="hover:bg-slate-50 transition-colors group">
+                      <td className="px-6 py-4 font-medium text-slate-500">{c.id}</td>
+                      <td className="px-6 py-4 flex items-center gap-3">
+                        <div className="p-2 bg-slate-100 text-slate-600 rounded-lg group-hover:scale-110 transition-transform">
+                          <FaUserCog className="w-4 h-4 shrink-0" />
+                        </div>
+                        <span className="font-semibold text-slate-700">{c.name}</span>
+                      </td>
+                      <td className="px-6 py-4 text-slate-500">{c.email}</td>
+                      <td className="px-6 py-4 font-medium text-slate-600">{c.phone}</td>
+                      <td className="px-6 py-4 text-center">
+                        <span className={`px-2.5 py-1 text-xs font-bold rounded-md border ${getLoyaltyBadge(c.loyalty)}`}>
+                          {c.loyalty}
+                        </span>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="5" className="text-center py-8 text-slate-500 font-medium">
+                      Data customer tidak ditemukan
                     </td>
                   </tr>
-                ))}
+                )}
               </tbody>
 
             </table>
+          </div>
+
+          {/* PAGINATION (Baru ditambahkan) */}
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 p-5 border-t border-slate-200 text-sm bg-slate-50/50">
+            <span className="text-slate-500 font-medium">
+              Menampilkan {filteredCustomers.length === 0 ? 0 : indexOfFirstItem + 1} -{" "}
+              {Math.min(indexOfLastItem, filteredCustomers.length)} dari{" "}
+              {filteredCustomers.length} data
+            </span>
+
+            <div className="flex items-center gap-1.5">
+              <button
+                disabled={currentPage === 1}
+                onClick={() => setCurrentPage(currentPage - 1)}
+                className="px-3 py-1.5 bg-white border border-slate-200 text-slate-600 rounded-lg disabled:opacity-50 disabled:bg-slate-50 hover:bg-slate-50 font-medium transition-colors"
+              >
+                Prev
+              </button>
+
+              <div className="flex gap-1.5 hidden sm:flex">
+                {[...Array(totalPages)].map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentPage(i + 1)}
+                    className={`px-3.5 py-1.5 rounded-lg font-medium transition-colors ${
+                      currentPage === i + 1
+                        ? "bg-red-500 text-white shadow-sm"
+                        : "bg-white border border-slate-200 text-slate-600 hover:bg-slate-50"
+                    }`}
+                  >
+                    {i + 1}
+                  </button>
+                ))}
+              </div>
+
+              <button
+                disabled={currentPage === totalPages || totalPages === 0}
+                onClick={() => setCurrentPage(currentPage + 1)}
+                className="px-3 py-1.5 bg-white border border-slate-200 text-slate-600 rounded-lg disabled:opacity-50 disabled:bg-slate-50 hover:bg-slate-50 font-medium transition-colors"
+              >
+                Next
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
       {/* MODAL */}
       {openModal && (
-        <div className="fixed inset-0 z-50 flex justify-center items-center p-4">
+        <div className="fixed inset-0 z-50 flex justify-center items-center p-4 animate-in fade-in duration-200">
 
           {/* BACKDROP */}
           <div 
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm"
             onClick={() => setOpenModal(false)}
           ></div>
 
           {/* CONTENT */}
-          <div className="relative bg-slate-900 border border-white/10 p-8 rounded-2xl shadow-2xl w-full max-w-md">
+          <div className="relative bg-white border border-slate-200 p-8 rounded-2xl shadow-2xl w-full max-w-md animate-in zoom-in-95 duration-200">
             
             {/* TITLE */}
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-bold">Tambah Customer</h2>
+              <h2 className="text-xl font-bold text-slate-800">Tambah Customer</h2>
               <button 
                 onClick={() => setOpenModal(false)}
-                className="text-slate-400 hover:text-red-400"
+                className="text-slate-400 hover:text-slate-600 transition-colors p-1"
               >
                 <FaTimes />
               </button>
@@ -155,50 +254,62 @@ export default function Customers() {
 
             {/* FORM */}
             <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Nama Lengkap</label>
+                <input 
+                  placeholder="Contoh: Budi Santoso"
+                  value={form.name}
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all"
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                />
+              </div>
 
-              <input 
-                placeholder="Nama Lengkap"
-                value={form.name}
-                className="w-full bg-white/5 border border-white/10 px-4 py-2 rounded-lg outline-none focus:ring-2 focus:ring-orange-500"
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-              />
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Email</label>
+                <input 
+                  placeholder="Contoh: budi@mail.com"
+                  type="email"
+                  value={form.email}
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all"
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                />
+              </div>
 
-              <input 
-                placeholder="Email"
-                value={form.email}
-                className="w-full bg-white/5 border border-white/10 px-4 py-2 rounded-lg outline-none focus:ring-2 focus:ring-orange-500"
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-              />
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Nomor HP</label>
+                <input 
+                  placeholder="Contoh: 08123456789"
+                  value={form.phone}
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all"
+                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                />
+              </div>
 
-              <input 
-                placeholder="No HP"
-                value={form.phone}
-                className="w-full bg-white/5 border border-white/10 px-4 py-2 rounded-lg outline-none focus:ring-2 focus:ring-orange-500"
-                onChange={(e) => setForm({ ...form, phone: e.target.value })}
-              />
-
-              <select 
-                value={form.loyalty}
-                className="w-full bg-white/5 border border-white/10 px-4 py-2 rounded-lg outline-none"
-                onChange={(e) => setForm({ ...form, loyalty: e.target.value })}
-              >
-                <option value="Bronze">Bronze</option>
-                <option value="Silver">Silver</option>
-                <option value="Gold">Gold</option>
-              </select>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Loyalty Level</label>
+                <select 
+                  value={form.loyalty}
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all cursor-pointer"
+                  onChange={(e) => setForm({ ...form, loyalty: e.target.value })}
+                >
+                  <option value="Bronze">Bronze</option>
+                  <option value="Silver">Silver</option>
+                  <option value="Gold">Gold</option>
+                </select>
+              </div>
             </div>
 
-            {/* BUTTON */}
-            <div className="mt-6 flex gap-3">
+            {/* BUTTONS */}
+            <div className="mt-8 flex gap-3">
               <button
                 onClick={() => setOpenModal(false)}
-                className="w-full bg-white/10 hover:bg-white/20 py-2 rounded-lg"
+                className="flex-1 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 font-semibold py-3 px-4 rounded-xl transition-all duration-200"
               >
                 Batal
               </button>
               <button
                 onClick={handleAdd}
-                className="w-full bg-gradient-to-r from-orange-500 to-red-500 py-2 rounded-lg"
+                className="flex-1 bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-200 shadow-sm shadow-red-500/20 hover:shadow-md hover:-translate-y-0.5"
               >
                 Simpan
               </button>

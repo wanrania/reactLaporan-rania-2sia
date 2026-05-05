@@ -1,6 +1,6 @@
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { BiError } from "react-icons/bi";
-import { FaTools, FaWrench, FaCar, FaShieldAlt } from "react-icons/fa";
+import { FaWrench, FaEnvelope, FaLock } from "react-icons/fa";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -55,30 +55,27 @@ export default function Login() {
 
   /* error & loading status */
   const errorInfo = error ? (
-    <div className="bg-red-500/10 border border-red-500/30 backdrop-blur-sm mb-6 p-4 rounded-xl flex items-center text-red-100 shadow-lg">
-      <BiError className="text-red-400 mr-3 text-lg flex-shrink-0" />
-      <span className="font-medium">{error}</span>
+    <div className="bg-red-50 border border-red-200 mb-6 p-4 rounded-xl flex items-center text-red-600 shadow-sm">
+      <BiError className="text-red-500 mr-3 text-xl flex-shrink-0" />
+      <span className="font-medium text-sm">{error}</span>
     </div>
   ) : null;
 
   const loadingInfo = loading ? (
-    <div className="bg-blue-500/10 border border-blue-500/30 backdrop-blur-sm mb-6 p-4 rounded-xl flex items-center text-blue-100 shadow-lg">
-      <AiOutlineLoading3Quarters className="mr-3 text-blue-400 text-lg animate-spin flex-shrink-0" />
-      <span className="font-medium">Memproses login...</span>
+    <div className="bg-slate-50 border border-slate-200 mb-6 p-4 rounded-xl flex items-center text-slate-600 shadow-sm">
+      <AiOutlineLoading3Quarters className="mr-3 text-slate-400 text-lg animate-spin flex-shrink-0" />
+      <span className="font-medium text-sm">Memproses login...</span>
     </div>
   ) : null;
 
   return (
     <>
-      {/* Header */}
-      <div className="text-center mb-10">
-        <div className="inline-flex items-center justify-center w-16 h-16 mx-auto mb-4 p-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl border-2 border-orange-400/50 shadow-lg">
-          <FaTools className="text-xl text-white" />
-        </div>
-        <h2 className="text-2xl font-bold text-white mb-2 tracking-tight">
-          🚗 Selamat Datang Kembali
+      {/* Header Form */}
+      <div className="text-center mb-8">
+        <h2 className="text-2xl font-bold text-slate-900 mb-2 tracking-tight">
+          Selamat Datang Kembali
         </h2>
-        <p className="text-slate-400 text-sm font-medium tracking-wide">
+        <p className="text-slate-500 text-sm font-medium tracking-wide">
           Masuk ke sistem manajemen bengkel Auto Tech
         </p>
       </div>
@@ -88,72 +85,86 @@ export default function Login() {
       {loadingInfo}
 
       {/* Form */}
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <label className="flex items-center mb-3 text-sm font-semibold text-slate-300 tracking-wide">
-            <FaCar className="mr-3 text-orange-400 text-lg flex-shrink-0" />
+          <label className="block mb-2 text-sm font-semibold text-slate-700 tracking-wide">
             Email / Username
           </label>
-          <input
-            type="text"
-            name="email"
-            className="w-full px-5 py-4 bg-white/5 backdrop-blur-sm border border-slate-600/50 rounded-xl 
-                        text-white placeholder-slate-400 text-base font-medium focus:outline-none focus:ring-2 focus:ring-orange-500/50 
-                        focus:border-orange-400/60 hover:border-orange-400/40 transition-all duration-300 shadow-md hover:shadow-lg"
-            placeholder="admin@bengkel.com"
-            value={dataForm.email}
-            onChange={handleChange}
-            disabled={loading}
-          />
+          <div className="relative">
+            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+              <FaEnvelope className="text-slate-400" />
+            </div>
+            <input
+              type="text"
+              name="email"
+              className="w-full pl-11 pr-5 py-3.5 bg-slate-50 border border-slate-200 rounded-xl 
+                         text-slate-900 placeholder-slate-400 text-sm font-medium focus:outline-none 
+                         focus:ring-4 focus:ring-red-500/10 focus:border-red-500 transition-all duration-300"
+              placeholder="admin@bengkel.com"
+              value={dataForm.email}
+              onChange={handleChange}
+              disabled={loading}
+            />
+          </div>
         </div>
 
         <div>
-          <label className="flex items-center mb-3 text-sm font-semibold text-slate-300 tracking-wide">
-            <FaShieldAlt className="mr-3 text-orange-400 text-lg flex-shrink-0" />
-            Password
-          </label>
-          <input
-            type="password"
-            name="password"
-            className="w-full px-5 py-4 bg-white/5 backdrop-blur-sm border border-slate-600/50 rounded-xl 
-                        text-white placeholder-slate-400 text-base font-medium focus:outline-none focus:ring-2 focus:ring-orange-500/50 
-                        focus:border-orange-400/60 hover:border-orange-400/40 transition-all duration-300 shadow-md hover:shadow-lg"
-            placeholder="********"
-            value={dataForm.password}
-            onChange={handleChange}
-            disabled={loading}
-          />
+          <div className="flex items-center justify-between mb-2">
+            <label className="block text-sm font-semibold text-slate-700 tracking-wide">
+              Password
+            </label>
+            {/* Lupa Password dipindah ke atas dekat label agar lebih modern */}
+            <button
+              type="button"
+              onClick={() => navigate("/forgot")}
+              className="text-red-500 hover:text-red-600 text-sm font-semibold transition-colors"
+            >
+              Lupa Password?
+            </button>
+          </div>
+          <div className="relative">
+            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+              <FaLock className="text-slate-400" />
+            </div>
+            <input
+              type="password"
+              name="password"
+              className="w-full pl-11 pr-5 py-3.5 bg-slate-50 border border-slate-200 rounded-xl 
+                         text-slate-900 placeholder-slate-400 text-sm font-medium focus:outline-none 
+                         focus:ring-4 focus:ring-red-500/10 focus:border-red-500 transition-all duration-300"
+              placeholder="********"
+              value={dataForm.password}
+              onChange={handleChange}
+              disabled={loading}
+            />
+          </div>
         </div>
 
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-gradient-to-r from-orange-500 via-red-500 to-yellow-500 hover:from-orange-600 hover:via-red-600 hover:to-yellow-600 
-                    text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 
-                    active:scale-95 focus:outline-none focus:ring-2 focus:ring-orange-500/50 disabled:opacity-50 disabled:cursor-not-allowed 
-                    flex items-center justify-center space-x-3 text-lg tracking-wide"
+          className="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-3.5 px-8 
+                     rounded-xl transition-all duration-300 shadow-md shadow-red-500/20 hover:shadow-lg 
+                     hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-4 
+                     focus:ring-red-500/20 disabled:opacity-70 disabled:cursor-not-allowed 
+                     flex items-center justify-center space-x-2 text-base tracking-wide mt-2"
         >
-          <FaWrench className="w-5 h-5" />
+          <FaWrench className="w-4 h-4" />
           <span>Masuk ke Sistem</span>
         </button>
       </form>
 
-      {/* Footer Links */}
-      <div className="mt-10 pt-8 border-t border-slate-700/50 flex flex-col items-center gap-3 text-center">
-        <button
-          onClick={() => navigate("/forgot")}
-          className="flex items-center gap-2 text-orange-400 hover:text-orange-300 text-sm font-semibold tracking-wide transition-all duration-300 hover:underline"
-        >
-          <FaShieldAlt className="w-4 h-4" />
-          Lupa Password?
-        </button>
-
-        <button
-          onClick={() => navigate("/register")}
-          className="flex items-center gap-2 text-slate-400 hover:text-slate-300 text-sm font-semibold tracking-wide transition-all duration-300 hover:underline"
-        >
-          Belum punya akun? <span className="text-yellow-400 ml-1">Daftar</span>
-        </button>
+      {/* Footer Register */}
+      <div className="mt-8 pt-6 flex flex-col items-center gap-3 text-center">
+        <p className="text-slate-500 text-sm font-medium tracking-wide">
+          Belum punya akun?{" "}
+          <button
+            onClick={() => navigate("/register")}
+            className="text-red-500 hover:text-red-600 font-bold transition-colors hover:underline"
+          >
+            Daftar Sekarang
+          </button>
+        </p>
       </div>
     </>
   );

@@ -16,7 +16,6 @@ export default function Services() {
     { id: "S008", name: "Spooring & Balancing", price: 300000, duration: "2 jam" },
     { id: "S009", name: "Servis CVT", price: 100000, duration: "1 jam" },
     { id: "S010", name: "Ganti Busi", price: 40000, duration: "20 menit" },
-
     { id: "S011", name: "Servis Injeksi", price: 180000, duration: "1.5 jam" },
     { id: "S012", name: "Cuci Mobil", price: 50000, duration: "40 menit" },
     { id: "S013", name: "Salon Mobil", price: 500000, duration: "4 jam" },
@@ -27,7 +26,6 @@ export default function Services() {
     { id: "S018", name: "Ganti Shockbreaker", price: 400000, duration: "2 jam" },
     { id: "S019", name: "Servis AC Mobil", price: 250000, duration: "2 jam" },
     { id: "S020", name: "Isi Freon AC", price: 150000, duration: "1 jam" },
-
     { id: "S021", name: "Ganti Ban", price: 100000, duration: "45 menit" },
     { id: "S022", name: "Tambal Ban", price: 20000, duration: "15 menit" },
     { id: "S023", name: "Servis Kelistrikan", price: 220000, duration: "2 jam" },
@@ -80,135 +78,139 @@ export default function Services() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white pb-10">
+    <div className="min-h-screen bg-slate-50 text-slate-900 pb-10">
 
       {/* HEADER */}
       <div className="px-6 pt-6">
         <PageHeader title="Layanan Servis" breadcrumb={["Dashboard", "Services"]}>
           <button
             onClick={() => setOpenModal(true)}
-            className="bg-gradient-to-r from-orange-500 to-red-500 px-5 py-2.5 rounded-lg flex items-center gap-2 shadow-lg hover:opacity-90"
+            className="bg-red-500 hover:bg-red-600 text-white px-5 py-2.5 rounded-xl flex items-center gap-2 shadow-sm shadow-red-500/20 transition-all hover:-translate-y-0.5 active:scale-95 font-medium"
           >
-            <FaPlus /> Tambah Service
+            <FaPlus className="text-sm" /> Tambah Service
           </button>
         </PageHeader>
       </div>
 
       {/* FILTER & SEARCH */}
-      <div className="flex justify-between items-center p-6">
-        <div className="flex items-center gap-2 text-sm text-slate-300">
-          Show
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 px-6 pt-2 pb-6">
+        <div className="flex items-center gap-2 text-sm text-slate-600 font-medium">
+          Tampilkan
           <select
             value={itemsPerPage}
             onChange={(e) => {
               setItemsPerPage(Number(e.target.value));
               setCurrentPage(1);
             }}
-            className="bg-white/5 border border-white/10 rounded px-2 py-1"
+            className="bg-white border border-slate-200 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-colors cursor-pointer"
           >
             <option value={5}>5</option>
             <option value={10}>10</option>
             <option value={20}>20</option>
           </select>
-          entries
+          entri
         </div>
 
         <input
           type="text"
-          placeholder="Cari service..."
+          placeholder="Cari nama service..."
           value={search}
           onChange={(e) => {
             setSearch(e.target.value);
             setCurrentPage(1);
           }}
-          className="bg-white/5 border border-white/10 px-3 py-2 rounded-lg text-sm outline-none focus:ring-2 focus:ring-orange-500"
+          className="bg-white border border-slate-200 px-4 py-2.5 rounded-xl text-sm outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all w-full sm:w-64 shadow-sm"
         />
       </div>
 
-      {/* TABLE */}
+      {/* TABLE CONTAINER */}
       <div className="px-6">
-        <div className="bg-white/5 border border-white/10 rounded-xl overflow-hidden">
-          <div className="overflow-x-auto max-h-[400px]">
-  <table className="w-full table-fixed text-sm border-collapse">
+        <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+          <div className="overflow-x-auto max-h-[500px]">
+            <table className="w-full table-fixed text-sm border-collapse">
 
-    {/* HEADER */}
-    <thead className="bg-slate-800 text-slate-300 uppercase sticky top-0 z-10">
-      <tr>
-        <th className="px-6 py-4 text-left w-[100px]">ID</th>
-        <th className="px-6 py-4 text-left">Service</th>
-        <th className="px-6 py-4 text-left w-[180px]">Harga</th>
-        <th className="px-6 py-4 text-left w-[150px]">Durasi</th>
-      </tr>
-    </thead>
+              {/* HEADER */}
+              <thead className="bg-slate-50 text-slate-600 uppercase text-xs font-bold tracking-wider border-b border-slate-200 sticky top-0 z-10">
+                <tr>
+                  <th className="px-6 py-4 text-left w-[100px]">ID</th>
+                  <th className="px-6 py-4 text-left">Service</th>
+                  <th className="px-6 py-4 text-left w-[180px]">Harga</th>
+                  <th className="px-6 py-4 text-left w-[150px]">Durasi</th>
+                </tr>
+              </thead>
 
-    {/* BODY */}
-    <tbody className="divide-y divide-white/10">
-      {currentServices.length > 0 ? (
-        currentServices.map((s) => (
-          <tr key={s.id} className="hover:bg-white/5 transition">
-            <td className="px-6 py-4">{s.id}</td>
+              {/* BODY */}
+              <tbody className="divide-y divide-slate-100">
+                {currentServices.length > 0 ? (
+                  currentServices.map((s) => (
+                    <tr key={s.id} className="hover:bg-slate-50 transition-colors group">
+                      <td className="px-6 py-4 font-medium text-slate-500">{s.id}</td>
 
-            <td className="px-6 py-4">
-              <div className="flex items-center gap-2">
-                <FaTools className="text-orange-400 shrink-0" />
-                <span>{s.name}</span>
-              </div>
-            </td>
+                      <td className="px-6 py-4">
+                        <div className="flex items-center gap-3">
+                          <div className="p-2 bg-red-50 text-red-500 rounded-lg group-hover:scale-110 transition-transform">
+                            <FaTools className="w-3.5 h-3.5 shrink-0" />
+                          </div>
+                          <span className="font-semibold text-slate-700">{s.name}</span>
+                        </div>
+                      </td>
 
-            <td className="px-6 py-4 text-green-400 font-semibold">
-              {formatRupiah(s.price)}
-            </td>
+                      <td className="px-6 py-4 text-green-600 font-bold">
+                        {formatRupiah(s.price)}
+                      </td>
 
-            <td className="px-6 py-4">{s.duration}</td>
-          </tr>
-        ))
-      ) : (
-        <tr>
-          <td colSpan="4" className="text-center py-6 text-slate-400">
-            Data tidak ditemukan
-          </td>
-        </tr>
-      )}
-    </tbody>
+                      <td className="px-6 py-4 text-slate-600 font-medium">{s.duration}</td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="4" className="text-center py-8 text-slate-500 font-medium">
+                      Data service tidak ditemukan
+                    </td>
+                  </tr>
+                )}
+              </tbody>
 
-  </table>
-</div>
+            </table>
+          </div>
 
           {/* PAGINATION */}
-          <div className="flex justify-between items-center p-4 border-t border-white/10 text-sm">
-            <span className="text-slate-400">
-              Showing {indexOfFirstItem + 1} -{" "}
-              {Math.min(indexOfLastItem, filteredServices.length)} of{" "}
-              {filteredServices.length}
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 p-5 border-t border-slate-200 text-sm bg-slate-50/50">
+            <span className="text-slate-500 font-medium">
+              Menampilkan {filteredServices.length === 0 ? 0 : indexOfFirstItem + 1} -{" "}
+              {Math.min(indexOfLastItem, filteredServices.length)} dari{" "}
+              {filteredServices.length} entri
             </span>
 
-            <div className="flex gap-2">
+            <div className="flex items-center gap-1.5">
               <button
                 onClick={() => setCurrentPage(currentPage - 1)}
                 disabled={currentPage === 1}
-                className="px-3 py-1 bg-white/10 rounded disabled:opacity-30"
+                className="px-3 py-1.5 bg-white border border-slate-200 text-slate-600 rounded-lg disabled:opacity-50 disabled:bg-slate-50 hover:bg-slate-50 font-medium transition-colors"
               >
                 Prev
               </button>
 
-              {[...Array(totalPages)].map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrentPage(i + 1)}
-                  className={`px-3 py-1 rounded ${
-                    currentPage === i + 1
-                      ? "bg-orange-500"
-                      : "bg-white/10"
-                  }`}
-                >
-                  {i + 1}
-                </button>
-              ))}
+              <div className="flex gap-1.5 hidden sm:flex">
+                {[...Array(totalPages)].map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentPage(i + 1)}
+                    className={`px-3.5 py-1.5 rounded-lg font-medium transition-colors ${
+                      currentPage === i + 1
+                        ? "bg-red-500 text-white shadow-sm"
+                        : "bg-white border border-slate-200 text-slate-600 hover:bg-slate-50"
+                    }`}
+                  >
+                    {i + 1}
+                  </button>
+                ))}
+              </div>
 
               <button
                 onClick={() => setCurrentPage(currentPage + 1)}
-                disabled={currentPage === totalPages}
-                className="px-3 py-1 bg-white/10 rounded disabled:opacity-30"
+                disabled={currentPage === totalPages || totalPages === 0}
+                className="px-3 py-1.5 bg-white border border-slate-200 text-slate-600 rounded-lg disabled:opacity-50 disabled:bg-slate-50 hover:bg-slate-50 font-medium transition-colors"
               >
                 Next
               </button>
@@ -219,35 +221,61 @@ export default function Services() {
 
       {/* MODAL */}
       {openModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/60">
-          <div className="bg-slate-900 p-6 rounded-xl w-96">
-            <h2 className="text-lg font-bold mb-4">Tambah Service</h2>
-
-            <input
-              placeholder="Nama"
-              className="w-full mb-3 p-2 bg-white/10 rounded"
-              onChange={(e) => setForm({ ...form, name: e.target.value })}
-            />
-
-            <input
-              placeholder="Harga"
-              type="number"
-              className="w-full mb-3 p-2 bg-white/10 rounded"
-              onChange={(e) => setForm({ ...form, price: e.target.value })}
-            />
-
-            <input
-              placeholder="Durasi"
-              className="w-full mb-3 p-2 bg-white/10 rounded"
-              onChange={(e) => setForm({ ...form, duration: e.target.value })}
-            />
-
-            <div className="flex gap-2">
-              <button onClick={handleAdd} className="bg-orange-500 px-4 py-2 rounded">
-                Simpan
+        <div className="fixed inset-0 flex items-center justify-center bg-slate-900/50 backdrop-blur-sm z-50 p-4 animate-in fade-in duration-200">
+          <div className="bg-white p-6 rounded-2xl w-full max-w-md shadow-xl animate-in zoom-in-95 duration-200">
+            
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-xl font-bold text-slate-800">Tambah Service Baru</h2>
+              <button onClick={() => setOpenModal(false)} className="text-slate-400 hover:text-slate-600 transition-colors p-1">
+                <FaTimes />
               </button>
-              <button onClick={() => setOpenModal(false)} className="bg-gray-500 px-4 py-2 rounded">
+            </div>
+
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Nama Service</label>
+                <input
+                  placeholder="Contoh: Ganti Kampas Kopling"
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all"
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Harga (Rp)</label>
+                <input
+                  placeholder="Contoh: 150000"
+                  type="number"
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all"
+                  value={form.price}
+                  onChange={(e) => setForm({ ...form, price: e.target.value })}
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Estimasi Durasi</label>
+                <input
+                  placeholder="Contoh: 45 menit"
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all"
+                  value={form.duration}
+                  onChange={(e) => setForm({ ...form, duration: e.target.value })}
+                />
+              </div>
+            </div>
+
+            <div className="flex gap-3 mt-8">
+              <button 
+                onClick={() => setOpenModal(false)} 
+                className="flex-1 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 font-semibold py-3 px-4 rounded-xl transition-all duration-200"
+              >
                 Batal
+              </button>
+              <button 
+                onClick={handleAdd} 
+                className="flex-1 bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-200 shadow-sm shadow-red-500/20 hover:shadow-md hover:-translate-y-0.5"
+              >
+                Simpan Service
               </button>
             </div>
           </div>

@@ -18,6 +18,8 @@ function App() {
   const AuthLayout = React.lazy(() => import("./layouts/AuthLayout"))
   const Kendaraan = React.lazy(() => import("./pages/Kendaraan"))
   const Services = React.lazy(() => import("./pages/Services"))
+  const CustomerDetail = React.lazy(() => import("./pages/CustomerDetail"))
+  const VehicleDetail = React.lazy(() => import("./pages/VehicleDetail"))
   // const Loading = React.lazy(() => import("./components/Loading"))
   
   return (
@@ -34,6 +36,8 @@ function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path="/kendaraan" element={<Kendaraan />} />
               <Route path="/customers" element={<Customers />} />
+              <Route path="/customers/:id" element={<CustomerDetail />} />
+              <Route path="/kendaraan/:id" element={<VehicleDetail />} />
               <Route path="/services" element={<Services />} />
               <Route path="*" element={<ErrorPage code="404" />} />
         </Route>

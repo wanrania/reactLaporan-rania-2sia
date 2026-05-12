@@ -1,0 +1,92 @@
+[
+  {
+    "id": "V001",
+    "owner": "Andi Saputra",
+    "type": "Motor",
+    "brand": "Honda Beat",
+    "plate": "B 1234 XYZ",
+    "year": 2020,
+    "image": "https://images.unsplash.com/photo-1558981806-ec527fa84c39"
+  },
+  {
+    "id": "V002",
+    "owner": "Budi Santoso",
+    "type": "Mobil",
+    "brand": "Toyota Avanza",
+    "plate": "B 5678 ABC",
+    "year": 2019,
+    "image": "https://images.unsplash.com/photo-1549924231-f129b911e442"
+  },
+  {
+    "id": "V003",
+    "owner": "Citra Lestari",
+    "type": "Motor",
+    "brand": "Yamaha NMAX",
+    "plate": "D 1122 AAA",
+    "year": 2021,
+    "image": "https://images.unsplash.com/photo-1517846693594-1567da72af75"
+  },
+  {
+    "id": "V004",
+    "owner": "Dewi Anggraini",
+    "type": "Mobil",
+    "brand": "Honda Brio",
+    "plate": "B 3344 BBB",
+    "year": 2022,
+    "image": "https://images.unsplash.com/photo-1503376780353-7e6692767b70"
+  },
+  {
+    "id": "V005",
+    "owner": "Eko Prasetyo",
+    "type": "Motor",
+    "brand": "Suzuki Satria",
+    "plate": "L 9988 CCC",
+    "year": 2018,
+    "image": "https://images.unsplash.com/photo-1558981403-c5f9891cdbc8"
+  },
+  {
+    "id": "V006",
+    "owner": "Fajar Hidayat",
+    "type": "Mobil",
+    "brand": "Mitsubishi Xpander",
+    "plate": "B 7788 DDD",
+    "year": 2020,
+    "image": "https://images.unsplash.com/photo-1494976388531-d1058494cdd8"
+  },
+  {
+    "id": "V007",
+    "owner": "Gina Marlina",
+    "type": "Motor",
+    "brand": "Honda Vario",
+    "plate": "F 2233 EEE",
+    "year": 2021,
+    "image": "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d"
+  },
+  {
+    "id": "V008",
+    "owner": "Hadi Wijaya",
+    "type": "Mobil",
+    "brand": "Toyota Rush",
+    "plate": "B 5566 FFF",
+    "year": 2019,
+    "image": "https://images.unsplash.com/photo-1502877338535-766e1452684a"
+  },
+  {
+    "id": "V009",
+    "owner": "Indah Sari",
+    "type": "Motor",
+    "brand": "Yamaha Aerox",
+    "plate": "D 7788 GGG",
+    "year": 2022,
+    "image": "https://images.unsplash.com/photo-1511919884226-fd3cad34687c"
+  },
+  {
+    "id": "V010",
+    "owner": "Joko Susilo",
+    "type": "Mobil",
+    "brand": "Suzuki Ertiga",
+    "plate": "B 9911 HHH",
+    "year": 2017,
+    "image": "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7"
+  }
+]

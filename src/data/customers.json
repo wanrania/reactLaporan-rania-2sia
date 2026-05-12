@@ -1,0 +1,272 @@
+[
+  {
+    "id": "C001",
+    "name": "Andi Saputra",
+    "email": "andi@mail.com",
+    "phone": "081234567001",
+    "loyalty": "Gold",
+    "address": "Jl. Merdeka No. 1",
+    "vehicle": "Honda Beat"
+  },
+  {
+    "id": "C002",
+    "name": "Budi Santoso",
+    "email": "budi@mail.com",
+    "phone": "081234567002",
+    "loyalty": "Silver",
+    "address": "Jl. Sudirman No. 2",
+    "vehicle": "Yamaha NMAX"
+  },
+  {
+    "id": "C003",
+    "name": "Citra Lestari",
+    "email": "citra@mail.com",
+    "phone": "081234567003",
+    "loyalty": "Bronze",
+    "address": "Jl. Mawar No. 3",
+    "vehicle": "Honda Vario"
+  },
+  {
+    "id": "C004",
+    "name": "Dewi Anggraini",
+    "email": "dewi@mail.com",
+    "phone": "081234567004",
+    "loyalty": "Gold",
+    "address": "Jl. Melati No. 4",
+    "vehicle": "Suzuki Satria"
+  },
+  {
+    "id": "C005",
+    "name": "Eko Prasetyo",
+    "email": "eko@mail.com",
+    "phone": "081234567005",
+    "loyalty": "Silver",
+    "address": "Jl. Kenanga No. 5",
+    "vehicle": "Honda PCX"
+  },
+  {
+    "id": "C006",
+    "name": "Fajar Hidayat",
+    "email": "fajar@mail.com",
+    "phone": "081234567006",
+    "loyalty": "Bronze",
+    "address": "Jl. Anggrek No. 6",
+    "vehicle": "Yamaha Aerox"
+  },
+  {
+    "id": "C007",
+    "name": "Gina Marlina",
+    "email": "gina@mail.com",
+    "phone": "081234567007",
+    "loyalty": "Gold",
+    "address": "Jl. Cemara No. 7",
+    "vehicle": "Honda Scoopy"
+  },
+  {
+    "id": "C008",
+    "name": "Hadi Wijaya",
+    "email": "hadi@mail.com",
+    "phone": "081234567008",
+    "loyalty": "Silver",
+    "address": "Jl. Flamboyan No. 8",
+    "vehicle": "Yamaha Mio"
+  },
+  {
+    "id": "C009",
+    "name": "Indah Sari",
+    "email": "indah@mail.com",
+    "phone": "081234567009",
+    "loyalty": "Bronze",
+    "address": "Jl. Sakura No. 9",
+    "vehicle": "Honda Genio"
+  },
+  {
+    "id": "C010",
+    "name": "Joko Susilo",
+    "email": "joko@mail.com",
+    "phone": "081234567010",
+    "loyalty": "Gold",
+    "address": "Jl. Dahlia No. 10",
+    "vehicle": "Suzuki Nex"
+  },
+  {
+    "id": "C011",
+    "name": "Kiki Amelia",
+    "email": "kiki@mail.com",
+    "phone": "081234567011",
+    "loyalty": "Silver",
+    "address": "Jl. Melur No. 11",
+    "vehicle": "Honda Beat"
+  },
+  {
+    "id": "C012",
+    "name": "Lukman Hakim",
+    "email": "lukman@mail.com",
+    "phone": "081234567012",
+    "loyalty": "Bronze",
+    "address": "Jl. Pahlawan No. 12",
+    "vehicle": "Yamaha Jupiter"
+  },
+  {
+    "id": "C013",
+    "name": "Maya Putri",
+    "email": "maya@mail.com",
+    "phone": "081234567013",
+    "loyalty": "Gold",
+    "address": "Jl. Veteran No. 13",
+    "vehicle": "Honda Vario"
+  },
+  {
+    "id": "C014",
+    "name": "Nanda Pratama",
+    "email": "nanda@mail.com",
+    "phone": "081234567014",
+    "loyalty": "Silver",
+    "address": "Jl. Kartini No. 14",
+    "vehicle": "Yamaha Fazzio"
+  },
+  {
+    "id": "C015",
+    "name": "Oki Setiawan",
+    "email": "oki@mail.com",
+    "phone": "081234567015",
+    "loyalty": "Bronze",
+    "address": "Jl. Ahmad Yani No. 15",
+    "vehicle": "Honda Supra"
+  },
+  {
+    "id": "C016",
+    "name": "Putri Ayu",
+    "email": "putri@mail.com",
+    "phone": "081234567016",
+    "loyalty": "Gold",
+    "address": "Jl. Diponegoro No. 16",
+    "vehicle": "Yamaha Lexi"
+  },
+  {
+    "id": "C017",
+    "name": "Qori Ahmad",
+    "email": "qori@mail.com",
+    "phone": "081234567017",
+    "loyalty": "Silver",
+    "address": "Jl. Ahmad Dahlan No. 17",
+    "vehicle": "Honda PCX"
+  },
+  {
+    "id": "C018",
+    "name": "Rina Kurnia",
+    "email": "rina@mail.com",
+    "phone": "081234567018",
+    "loyalty": "Bronze",
+    "address": "Jl. Imam Bonjol No. 18",
+    "vehicle": "Yamaha Aerox"
+  },
+  {
+    "id": "C019",
+    "name": "Sandi Nugroho",
+    "email": "sandi@mail.com",
+    "phone": "081234567019",
+    "loyalty": "Gold",
+    "address": "Jl. Gajah Mada No. 19",
+    "vehicle": "Honda Scoopy"
+  },
+  {
+    "id": "C020",
+    "name": "Tina Yuliana",
+    "email": "tina@mail.com",
+    "phone": "081234567020",
+    "loyalty": "Silver",
+    "address": "Jl. Hayam Wuruk No. 20",
+    "vehicle": "Suzuki Satria"
+  },
+  {
+    "id": "C021",
+    "name": "Umar Faruq",
+    "email": "umar@mail.com",
+    "phone": "081234567021",
+    "loyalty": "Bronze",
+    "address": "Jl. Cendana No. 21",
+    "vehicle": "Honda Genio"
+  },
+  {
+    "id": "C022",
+    "name": "Vina Melati",
+    "email": "vina@mail.com",
+    "phone": "081234567022",
+    "loyalty": "Gold",
+    "address": "Jl. Mangga No. 22",
+    "vehicle": "Yamaha Mio"
+  },
+  {
+    "id": "C023",
+    "name": "Wahyu Hidayat",
+    "email": "wahyu@mail.com",
+    "phone": "081234567023",
+    "loyalty": "Silver",
+    "address": "Jl. Rambutan No. 23",
+    "vehicle": "Honda Beat"
+  },
+  {
+    "id": "C024",
+    "name": "Xena Putri",
+    "email": "xena@mail.com",
+    "phone": "081234567024",
+    "loyalty": "Bronze",
+    "address": "Jl. Durian No. 24",
+    "vehicle": "Yamaha NMAX"
+  },
+  {
+    "id": "C025",
+    "name": "Yudi Santika",
+    "email": "yudi@mail.com",
+    "phone": "081234567025",
+    "loyalty": "Gold",
+    "address": "Jl. Alpukat No. 25",
+    "vehicle": "Honda Vario"
+  },
+  {
+    "id": "C026",
+    "name": "Zahra Nabila",
+    "email": "zahra@mail.com",
+    "phone": "081234567026",
+    "loyalty": "Silver",
+    "address": "Jl. Jeruk No. 26",
+    "vehicle": "Yamaha Lexi"
+  },
+  {
+    "id": "C027",
+    "name": "Agus Salim",
+    "email": "agus@mail.com",
+    "phone": "081234567027",
+    "loyalty": "Bronze",
+    "address": "Jl. Apel No. 27",
+    "vehicle": "Honda Supra"
+  },
+  {
+    "id": "C028",
+    "name": "Bella Sari",
+    "email": "bella@mail.com",
+    "phone": "081234567028",
+    "loyalty": "Gold",
+    "address": "Jl. Nangka No. 28",
+    "vehicle": "Yamaha Fazzio"
+  },
+  {
+    "id": "C029",
+    "name": "Chandra Wijaya",
+    "email": "chandra@mail.com",
+    "phone": "081234567029",
+    "loyalty": "Silver",
+    "address": "Jl. Sawo No. 29",
+    "vehicle": "Honda Scoopy"
+  },
+  {
+    "id": "C030",
+    "name": "Dina Kartika",
+    "email": "dina@mail.com",
+    "phone": "081234567030",
+    "loyalty": "Bronze",
+    "address": "Jl. Pepaya No. 30",
+    "vehicle": "Suzuki Nex"
+  }
+]

@@ -10,11 +10,17 @@ import PageHeader from "../components/PageHeader";
 import Button from "../components/Button";
 import Table from "../components/Table";
 import Badge from "../components/Badge";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 export default function Customers() {
   /* STATE */
-  const [openModal, setOpenModal] = useState(false);
-
+  
   const [customers, setCustomers] = useState(customersData);
 
   const [search, setSearch] = useState("");
@@ -77,10 +83,86 @@ export default function Customers() {
           title="Customers Bengkel"
           breadcrumb={["Dashboard", "Customers"]}
         >
-          <Button type="danger" onClick={() => setOpenModal(true)}>
-            <FaPlus className="text-sm" />
-            Tambah Customer
-          </Button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button type="danger">
+                <FaPlus className="text-sm" />
+                Tambah Customer
+              </Button>
+            </DialogTrigger>
+
+            <DialogContent className="sm:max-w-[500px]">
+              <DialogHeader>
+                <DialogTitle>Tambah Customer</DialogTitle>
+              </DialogHeader>
+
+              <div className="space-y-4 mt-4">
+                <FormInput
+                  label="Nama Lengkap"
+                  placeholder="Contoh: Budi Santoso"
+                  value={form.name}
+                  onChange={(e) =>
+                    setForm({
+                      ...form,
+                      name: e.target.value,
+                    })
+                  }
+                />
+
+                <FormInput
+                  label="Email"
+                  type="email"
+                  placeholder="Contoh: budi@mail.com"
+                  value={form.email}
+                  onChange={(e) =>
+                    setForm({
+                      ...form,
+                      email: e.target.value,
+                    })
+                  }
+                />
+
+                <FormInput
+                  label="Nomor HP"
+                  placeholder="08123456789"
+                  value={form.phone}
+                  onChange={(e) =>
+                    setForm({
+                      ...form,
+                      phone: e.target.value,
+                    })
+                  }
+                />
+
+                <div>
+                  <label className="mb-1.5 block text-sm font-semibold text-slate-700">
+                    Loyalty Level
+                  </label>
+
+                  <select
+                    value={form.loyalty}
+                    onChange={(e) =>
+                      setForm({
+                        ...form,
+                        loyalty: e.target.value,
+                      })
+                    }
+                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3"
+                  >
+                    <option value="Bronze">Bronze</option>
+                    <option value="Silver">Silver</option>
+                    <option value="Gold">Gold</option>
+                  </select>
+                </div>
+
+                <div className="flex gap-3 pt-4">
+                  <Button type="danger" className="flex-1" onClick={handleAdd}>
+                    Simpan
+                  </Button>
+                </div>
+              </div>
+            </DialogContent>
+          </Dialog>
         </PageHeader>
       </div>
 
@@ -214,109 +296,6 @@ export default function Customers() {
         )}
       </Table>
 
-      {/* MODAL */}
-      {openModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          {/* BACKDROP */}
-          <div
-            className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm"
-            onClick={() => setOpenModal(false)}
-          />
-
-          {/* CONTENT */}
-          <div className="relative w-full max-w-md rounded-2xl border border-slate-200 bg-white p-8 shadow-2xl">
-            {/* HEADER */}
-            <div className="mb-6 flex items-center justify-between">
-              <h2 className="text-xl font-bold text-slate-800">
-                Tambah Customer
-              </h2>
-
-              <Button type="icon" onClick={() => setOpenModal(false)}>
-                <FaTimes />
-              </Button>
-            </div>
-
-            {/* FORM */}
-            <div className="space-y-4">
-              <FormInput
-                label="Nama Lengkap"
-                placeholder="Contoh: Budi Santoso"
-                value={form.name}
-                onChange={(e) =>
-                  setForm({
-                    ...form,
-                    name: e.target.value,
-                  })
-                }
-              />
-
-              <FormInput
-                label="Email"
-                type="email"
-                placeholder="Contoh: budi@mail.com"
-                value={form.email}
-                onChange={(e) =>
-                  setForm({
-                    ...form,
-                    email: e.target.value,
-                  })
-                }
-              />
-
-              <FormInput
-                label="Nomor HP"
-                placeholder="08123456789"
-                value={form.phone}
-                onChange={(e) =>
-                  setForm({
-                    ...form,
-                    phone: e.target.value,
-                  })
-                }
-              />
-
-              {/* SELECT */}
-              <div>
-                <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-                  Loyalty Level
-                </label>
-
-                <select
-                  value={form.loyalty}
-                  onChange={(e) =>
-                    setForm({
-                      ...form,
-                      loyalty: e.target.value,
-                    })
-                  }
-                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-red-500/20"
-                >
-                  <option value="Bronze">Bronze</option>
-
-                  <option value="Silver">Silver</option>
-
-                  <option value="Gold">Gold</option>
-                </select>
-              </div>
-            </div>
-
-            {/* BUTTON */}
-            <div className="mt-8 flex gap-3">
-              <Button
-                type="outline"
-                className="flex-1"
-                onClick={() => setOpenModal(false)}
-              >
-                Batal
-              </Button>
-
-              <Button type="danger" className="flex-1" onClick={handleAdd}>
-                Simpan
-              </Button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

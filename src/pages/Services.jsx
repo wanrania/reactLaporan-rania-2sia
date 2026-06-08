@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { FaPlus, FaTimes, FaTools } from "react-icons/fa";
 import PageHeader from "../components/PageHeader";
 
@@ -48,6 +48,15 @@ export default function Services() {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(5);
   const [search, setSearch] = useState("");
+  const searchRef = useRef(null);
+
+  useEffect(() => {
+    console.log("Pencarian berubah:", search);
+  }, [search]);
+
+  useEffect(() => {
+    searchRef.current.focus();
+  }, []);
 
   // 🔍 SEARCH FILTER
   const filteredServices = services.filter((s) =>
@@ -112,6 +121,7 @@ export default function Services() {
         </div>
 
         <input
+          ref={searchRef}
           type="text"
           placeholder="Cari nama service..."
           value={search}
@@ -196,11 +206,10 @@ export default function Services() {
                   <button
                     key={i}
                     onClick={() => setCurrentPage(i + 1)}
-                    className={`px-3.5 py-1.5 rounded-lg font-medium transition-colors ${
-                      currentPage === i + 1
+                    className={`px-3.5 py-1.5 rounded-lg font-medium transition-colors ${currentPage === i + 1
                         ? "bg-red-500 text-white shadow-sm"
                         : "bg-white border border-slate-200 text-slate-600 hover:bg-slate-50"
-                    }`}
+                      }`}
                   >
                     {i + 1}
                   </button>
@@ -223,7 +232,7 @@ export default function Services() {
       {openModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-slate-900/50 backdrop-blur-sm z-50 p-4 animate-in fade-in duration-200">
           <div className="bg-white p-6 rounded-2xl w-full max-w-md shadow-xl animate-in zoom-in-95 duration-200">
-            
+
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-xl font-bold text-slate-800">Tambah Service Baru</h2>
               <button onClick={() => setOpenModal(false)} className="text-slate-400 hover:text-slate-600 transition-colors p-1">
@@ -265,14 +274,14 @@ export default function Services() {
             </div>
 
             <div className="flex gap-3 mt-8">
-              <button 
-                onClick={() => setOpenModal(false)} 
+              <button
+                onClick={() => setOpenModal(false)}
                 className="flex-1 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 font-semibold py-3 px-4 rounded-xl transition-all duration-200"
               >
                 Batal
               </button>
-              <button 
-                onClick={handleAdd} 
+              <button
+                onClick={handleAdd}
                 className="flex-1 bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-200 shadow-sm shadow-red-500/20 hover:shadow-md hover:-translate-y-0.5"
               >
                 Simpan Service

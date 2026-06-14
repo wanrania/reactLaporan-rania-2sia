@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 
 import { FaPlus, FaTimes, FaUserCog } from "react-icons/fa";
 
-import customersData from "../data/customers.json";
+import customersData from "../../data/customers.json";
 
 /* COMPONENTS */
-import PageHeader from "../components/PageHeader";
-import Button from "../components/Button";
-import Table from "../components/Table";
-import Badge from "../components/Badge";
+import PageHeader from "../../components/PageHeader";
+import Button from "../../components/Button";
+import Table from "../../components/Table";
+import Badge from "../../components/Badge";
 import {
   Dialog,
   DialogContent,

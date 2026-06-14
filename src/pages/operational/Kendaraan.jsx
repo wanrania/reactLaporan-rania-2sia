@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { FaPlus, FaCar } from "react-icons/fa";
-import PageHeader from "../components/PageHeader";
+import PageHeader from "../../components/PageHeader";
 import { Link } from "react-router-dom";
-import vehiclesData from "../data/vehicle.json";
+import vehiclesData from "../../data/vehicle.json";
 
 export default function Kendaraan() {
   const [openModal, setOpenModal] = useState(false);

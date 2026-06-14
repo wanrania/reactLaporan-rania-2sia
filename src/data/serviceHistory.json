@@ -1,0 +1,32 @@
+[
+  {
+    "id": "TRX001",
+    "customer": "Andi Saputra",
+    "vehicle": "Honda Beat",
+    "service": "Ganti Oli",
+    "mechanic": "Budi",
+    "date": "2026-06-10",
+    "cost": 50000,
+    "status": "Selesai"
+  },
+  {
+    "id": "TRX002",
+    "customer": "Citra Lestari",
+    "vehicle": "Yamaha NMAX",
+    "service": "Tune Up",
+    "mechanic": "Rizky",
+    "date": "2026-06-12",
+    "cost": 150000,
+    "status": "Diproses"
+  },
+  {
+    "id": "TRX003",
+    "customer": "Budi Santoso",
+    "vehicle": "Toyota Avanza",
+    "service": "Servis Mesin",
+    "mechanic": "Dedi",
+    "date": "2026-06-13",
+    "cost": 250000,
+    "status": "Pending"
+  }
+]

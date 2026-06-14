@@ -3,7 +3,7 @@ import { BiError } from "react-icons/bi";
 import { FaWrench, FaEnvelope, FaLock } from "react-icons/fa";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { usersAPI } from "../../services/usersAPI";
 
 export default function Login() {
   /* navigate, state & handleChange*/
@@ -26,31 +26,37 @@ export default function Login() {
   /* process form */
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    setError("");
 
-    axios
-      .post("https://dummyjson.com/user/login", {
-        username: dataForm.email,
-        password: dataForm.password,
-      })
-      .then((response) => {
-        if (response.status !== 200) {
-          setError(response.data.message || "Login gagal");
-          return;
-        }
+    try {
+      setLoading(true);
+      setError("");
+
+      const user = await usersAPI.login(dataForm.email, dataForm.password);
+
+      if (user.length === 0) {
+        setError("Email atau password salah");
+        return;
+      }
+
+      const loginUser = user[0];
+
+      // simpan session
+      localStorage.setItem("user", JSON.stringify(loginUser));
+
+      // redirect berdasarkan role
+      if (loginUser.role === "admin") {
         navigate("/");
-      })
-      .catch((err) => {
-        if (err.response) {
-          setError(err.response.data.message || "Terjadi kesalahan");
-        } else {
-          setError(err.message || "Koneksi bermasalah");
-        }
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+      } else if (loginUser.role === "member") {
+        navigate("/member");
+      } else {
+        navigate("/guest");
+      }
+    } catch (err) {
+      console.error(err);
+      setError("Gagal login");
+    } finally {
+      setLoading(false);
+    }
   };
 
   /* error & loading status */

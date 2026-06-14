@@ -8,7 +8,7 @@ import {
   FaCalendarAlt,
 } from "react-icons/fa";
 
-import vehiclesData from "../data/vehicle.json";
+import vehiclesData from "../../data/vehicle.json";
 
 export default function VehicleDetail() {
   const { id } = useParams();

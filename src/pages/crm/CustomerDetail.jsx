@@ -9,7 +9,7 @@ import {
   FaArrowLeft,
 } from "react-icons/fa";
 
-import customersData from "../data/customers.json";
+import customersData from "../../data/customers.json";
 
 export default function CustomerDetail() {
   const { id } = useParams();

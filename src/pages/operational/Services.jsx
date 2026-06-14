@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { FaPlus, FaTimes, FaTools } from "react-icons/fa";
-import PageHeader from "../components/PageHeader";
+import PageHeader from "../../components/PageHeader";
 
 export default function Services() {
   const [openModal, setOpenModal] = useState(false);

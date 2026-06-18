@@ -45,11 +45,11 @@ export default function Login() {
 
       // redirect berdasarkan role
       if (loginUser.role === "admin") {
-        navigate("/");
+        navigate("/admin");
       } else if (loginUser.role === "member") {
         navigate("/member");
       } else {
-        navigate("/guest");
+        navigate("/");
       }
     } catch (err) {
       console.error(err);

@@ -3,15 +3,21 @@ import { Link } from "react-router-dom";
 import {
   FaArrowRight,
   FaBars,
+  FaBell,
   FaBolt,
   FaCalendarCheck,
+  FaCarSide,
   FaChartLine,
   FaCheckCircle,
+  FaClipboardList,
   FaGift,
+  FaHistory,
   FaStar,
   FaTimes,
   FaTools,
+  FaUserCheck,
   FaUsers,
+  FaWrench,
 } from "react-icons/fa";
 
 export default function LandingPage() {
@@ -19,11 +25,123 @@ export default function LandingPage() {
 
   const menus = [
     { name: "Home", href: "#home" },
-    { name: "Layanan", href: "#home" },
-    { name: "Membership", href: "#home" },
+    { name: "Layanan", href: "#layanan" },
+    { name: "Membership", href: "#membership" },
     { name: "Promo", href: "#home" },
     { name: "Tentang Kami", href: "#home" },
     { name: "Contact", href: "#home" },
+  ];
+
+  const services = [
+    {
+      icon: FaTools,
+      title: "Servis Berkala",
+      desc: "Perawatan rutin untuk menjaga performa kendaraan tetap stabil.",
+    },
+    {
+      icon: FaWrench,
+      title: "Tune Up",
+      desc: "Pengecekan dan penyetelan mesin agar kendaraan lebih responsif.",
+    },
+    {
+      icon: FaCalendarCheck,
+      title: "Booking Online",
+      desc: "Atur jadwal servis lebih mudah tanpa harus antre lama.",
+    },
+    {
+      icon: FaGift,
+      title: "Reward Point",
+      desc: "Dapatkan point setiap transaksi servis sebagai member Auto Tech.",
+    },
+    {
+      icon: FaHistory,
+      title: "Riwayat Servis",
+      desc: "Simpan catatan servis kendaraan secara rapi dan digital.",
+    },
+    {
+      icon: FaChartLine,
+      title: "Monitoring Kendaraan",
+      desc: "Pantau aktivitas servis dan kebutuhan kendaraan secara terukur.",
+    },
+  ];
+
+  const stats = [
+    {
+      icon: FaUsers,
+      value: "5.000+",
+      label: "Total Customer",
+    },
+    {
+      icon: FaCarSide,
+      value: "8.400+",
+      label: "Kendaraan Diservis",
+    },
+    {
+      icon: FaUserCheck,
+      value: "1.200+",
+      label: "Member Aktif",
+    },
+    {
+      icon: FaStar,
+      value: "98%",
+      label: "Tingkat Kepuasan",
+    },
+  ];
+
+  const workflows = [
+    {
+      icon: FaCalendarCheck,
+      title: "Booking",
+      desc: "Member memilih layanan, kendaraan, dan jadwal servis.",
+    },
+    {
+      icon: FaCarSide,
+      title: "Datang ke Bengkel",
+      desc: "Kendaraan masuk sesuai jadwal yang sudah dikonfirmasi.",
+    },
+    {
+      icon: FaTools,
+      title: "Servis",
+      desc: "Tim teknisi mengerjakan servis sesuai kebutuhan kendaraan.",
+    },
+    {
+      icon: FaCheckCircle,
+      title: "Selesai",
+      desc: "Riwayat servis tersimpan dan member memperoleh reward point.",
+    },
+  ];
+
+  const memberBenefits = [
+    {
+      icon: FaGift,
+      title: "Reward Point",
+      desc: "Kumpulkan point dari setiap transaksi servis.",
+    },
+    {
+      icon: FaStar,
+      title: "Promo Eksklusif",
+      desc: "Akses penawaran khusus untuk member Auto Tech.",
+    },
+    {
+      icon: FaHistory,
+      title: "Riwayat Servis Digital",
+      desc: "Semua catatan servis kendaraan tersimpan rapi.",
+    },
+    {
+      icon: FaCalendarCheck,
+      title: "Booking Prioritas",
+      desc: "Dapatkan pengalaman booking yang lebih cepat.",
+    },
+    {
+      icon: FaBell,
+      title: "Reminder Servis",
+      desc: "Pengingat jadwal perawatan kendaraan berikutnya.",
+    },
+    {
+      icon: FaClipboardList,
+      title: "Dashboard Member",
+      desc: "Pantau kendaraan, point, dan aktivitas servis dalam satu tempat.",
+    },
   ];
 
   const handleMenuClick = (event, href) => {
@@ -325,6 +443,199 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section id="layanan" className="bg-white py-24 lg:py-28">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="max-w-2xl">
+            <p className="text-sm font-black uppercase tracking-widest text-red-500">
+              Layanan Bengkel
+            </p>
+
+            <h2 className="mt-3 text-4xl sm:text-5xl font-black tracking-tight text-slate-950">
+              Semua layanan utama bengkel dalam pengalaman digital yang rapi.
+            </h2>
+
+            <p className="mt-5 text-lg leading-8 text-slate-500">
+              Auto Tech membantu pelanggan melakukan servis kendaraan dengan
+              proses yang lebih mudah, transparan, dan terhubung dengan member
+              dashboard.
+            </p>
+          </div>
+
+          <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service) => {
+              const Icon = service.icon;
+
+              return (
+                <div
+                  key={service.title}
+                  className="group rounded-3xl bg-white border border-slate-200 p-7 shadow-sm hover:shadow-xl hover:-translate-y-2 hover:border-red-200 transition-all duration-300"
+                >
+                  <div className="h-14 w-14 rounded-2xl bg-red-50 text-red-500 flex items-center justify-center text-xl group-hover:bg-red-500 group-hover:text-white transition-all duration-300">
+                    <Icon />
+                  </div>
+
+                  <h3 className="mt-6 text-xl font-black text-slate-900">
+                    {service.title}
+                  </h3>
+
+                  <p className="mt-3 leading-7 text-slate-500">
+                    {service.desc}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* STATISTIK */}
+      <section className="bg-slate-50 py-24 lg:py-28">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="rounded-[2rem] border border-slate-200 bg-white p-6 sm:p-8 lg:p-10 shadow-sm">
+            <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 items-center">
+              <div>
+                <p className="text-sm font-black uppercase tracking-widest text-red-500">
+                  Statistik Bengkel
+                </p>
+
+                <h2 className="mt-3 text-4xl sm:text-5xl font-black tracking-tight text-slate-950">
+                  Performa bengkel yang bisa dilihat secara cepat.
+                </h2>
+
+                <p className="mt-5 text-lg leading-8 text-slate-500">
+                  Data ringkas untuk menunjukkan skala layanan dan kepercayaan
+                  pelanggan terhadap Auto Tech.
+                </p>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4">
+                {stats.map((stat) => {
+                  const Icon = stat.icon;
+
+                  return (
+                    <div
+                      key={stat.label}
+                      className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm hover:bg-white hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+                    >
+                      <div className="h-12 w-12 rounded-2xl bg-red-50 text-red-500 flex items-center justify-center">
+                        <Icon />
+                      </div>
+
+                      <h3 className="mt-6 text-4xl font-black text-slate-950">
+                        {stat.value}
+                      </h3>
+
+                      <p className="mt-2 font-bold text-slate-500">
+                        {stat.label}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CARA KERJA */}
+      <section className="bg-white py-24 lg:py-28">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <p className="text-sm font-black uppercase tracking-widest text-red-500">
+              Cara Kerja
+            </p>
+
+            <h2 className="mt-3 text-4xl sm:text-5xl font-black tracking-tight text-slate-950">
+              Alur servis dibuat sederhana dari booking sampai selesai.
+            </h2>
+          </div>
+
+          <div className="mt-16 grid md:grid-cols-4 gap-5">
+            {workflows.map((workflow, index) => {
+              const Icon = workflow.icon;
+
+              return (
+                <div key={workflow.title} className="relative">
+                  {index < workflows.length - 1 && (
+                    <div className="hidden md:block absolute top-12 left-[calc(50%+2rem)] right-[-2.5rem] h-px bg-red-200" />
+                  )}
+
+                  <div className="relative h-full rounded-3xl border border-slate-200 bg-slate-50 p-7 text-center shadow-sm hover:bg-white hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                    <div className="mx-auto h-16 w-16 rounded-3xl bg-red-500 text-white flex items-center justify-center text-xl shadow-sm shadow-red-500/30">
+                      <Icon />
+                    </div>
+
+                    <span className="mt-5 inline-flex h-8 w-8 items-center justify-center rounded-full bg-red-50 text-red-500 text-sm font-black">
+                      {index + 1}
+                    </span>
+
+                    <h3 className="mt-4 text-xl font-black text-slate-900">
+                      {workflow.title}
+                    </h3>
+
+                    <p className="mt-3 leading-7 text-slate-500">
+                      {workflow.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* BENEFIT MEMBER */}
+      <section id="membership" className="bg-slate-50 py-24 lg:py-28">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+            <div className="max-w-2xl">
+              <p className="text-sm font-black uppercase tracking-widest text-red-500">
+                Benefit Member
+              </p>
+
+              <h2 className="mt-3 text-4xl sm:text-5xl font-black tracking-tight text-slate-950">
+                Member Auto Tech mendapatkan pengalaman servis yang lebih
+                personal.
+              </h2>
+            </div>
+
+            <Link
+              to="/register"
+              className="inline-flex items-center justify-center gap-3 rounded-2xl bg-white border border-slate-200 px-6 py-4 font-black text-slate-700 hover:border-red-200 hover:text-red-500 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+            >
+              Daftar Member
+              <FaArrowRight className="text-sm" />
+            </Link>
+          </div>
+
+          <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {memberBenefits.map((benefit) => {
+              const Icon = benefit.icon;
+
+              return (
+                <div
+                  key={benefit.title}
+                  className="group rounded-3xl border border-slate-200 bg-white p-7 shadow-sm hover:bg-red-500 hover:border-red-500 hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+                >
+                  <div className="h-14 w-14 rounded-2xl bg-red-50 text-red-500 flex items-center justify-center text-xl group-hover:bg-white/20 group-hover:text-white transition-all duration-300">
+                    <Icon />
+                  </div>
+
+                  <h3 className="mt-6 text-xl font-black text-slate-900 group-hover:text-white transition-colors duration-300">
+                    {benefit.title}
+                  </h3>
+
+                  <p className="mt-3 leading-7 text-slate-500 group-hover:text-red-50 transition-colors duration-300">
+                    {benefit.desc}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

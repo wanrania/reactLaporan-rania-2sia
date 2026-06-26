@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   FaArrowRight,
+  FaArrowUp,
   FaBars,
   FaBell,
   FaBolt,
@@ -10,26 +11,38 @@ import {
   FaChartLine,
   FaCheckCircle,
   FaClipboardList,
+  FaClock,
+  FaEnvelope,
+  FaFacebookF,
   FaGift,
   FaHistory,
+  FaInstagram,
+  FaMapMarkerAlt,
+  FaMoneyBillWave,
+  FaPhoneAlt,
   FaStar,
+  FaTag,
   FaTimes,
   FaTools,
   FaUserCheck,
   FaUsers,
+  FaWhatsapp,
   FaWrench,
 } from "react-icons/fa";
 
 export default function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   const menus = [
     { name: "Home", href: "#home" },
     { name: "Layanan", href: "#layanan" },
     { name: "Membership", href: "#membership" },
-    { name: "Promo", href: "#home" },
-    { name: "Tentang Kami", href: "#home" },
-    { name: "Contact", href: "#home" },
+    { name: "Promo", href: "#promo" },
+    { name: "Tentang Kami", href: "#about" },
+    { name: "Contact", href: "#contact" },
   ];
 
   const services = [
@@ -144,6 +157,94 @@ export default function LandingPage() {
     },
   ];
 
+  const promos = [
+    {
+      icon: FaTools,
+      badge: "Hemat 20%",
+      title: "Diskon Servis Berkala",
+      desc: "Paket perawatan rutin lebih hemat untuk kendaraan harian.",
+    },
+    {
+      icon: FaCarSide,
+      badge: "Gratis",
+      title: "Gratis Cuci Kendaraan",
+      desc: "Cuci kendaraan gratis setelah transaksi servis tertentu.",
+    },
+    {
+      icon: FaMoneyBillWave,
+      badge: "Cashback",
+      title: "Cashback Member",
+      desc: "Dapatkan cashback point khusus untuk member aktif.",
+    },
+    {
+      icon: FaGift,
+      badge: "Bonus",
+      title: "Bonus Reward Point",
+      desc: "Tambahan reward point untuk booking servis melalui portal.",
+    },
+  ];
+
+  const testimonials = [
+    {
+      name: "Budi Santoso",
+      avatar: "BS",
+      rating: 5,
+      comment:
+        "Booking servis jadi lebih cepat. Saya bisa cek riwayat kendaraan tanpa menyimpan nota manual.",
+    },
+    {
+      name: "Rina Amelia",
+      avatar: "RA",
+      rating: 5,
+      comment:
+        "Dashboard membernya rapi dan mudah dipahami. Reminder servis sangat membantu untuk kendaraan keluarga.",
+    },
+    {
+      name: "Andi Saputra",
+      avatar: "AS",
+      rating: 5,
+      comment:
+        "Reward point dan promo membernya terasa berguna. Proses servis juga transparan dari awal sampai selesai.",
+    },
+  ];
+
+  const heroStats = [
+    "⭐ 4.9 Rating",
+    "🚗 5000+ Servis",
+    "👥 1000+ Member",
+    "🛠 10 Tahun Pengalaman",
+  ];
+
+  useEffect(() => {
+    const sectionIds = ["home", "layanan", "membership", "promo", "contact", "about"];
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+
+      setIsScrolled(scrollY > 40);
+      setShowBackToTop(scrollY > 400);
+
+      const currentSection =
+        sectionIds.find((id) => {
+          const section = document.getElementById(id);
+
+          if (!section) return false;
+
+          const rect = section.getBoundingClientRect();
+
+          return rect.top <= 120 && rect.bottom > 120;
+        }) || "home";
+
+      setActiveSection(currentSection);
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const handleMenuClick = (event, href) => {
     event.preventDefault();
 
@@ -161,12 +262,33 @@ export default function LandingPage() {
     setIsMenuOpen(false);
   };
 
+  const scrollToTop = () => {
+    const target = document.querySelector("#home");
+
+    if (target) {
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+
+      window.history.pushState(null, "", "#home");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 scroll-smooth">
       {/* NAVBAR */}
-      <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-sm">
+      <nav
+        className={`sticky top-0 z-50 border-b border-slate-200 backdrop-blur-xl transition-all duration-300 ${
+          isScrolled ? "bg-white shadow-md" : "bg-white/95 shadow-sm"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="flex h-20 items-center justify-between">
+          <div
+            className={`flex items-center justify-between transition-all duration-300 ${
+              isScrolled ? "h-16" : "h-20"
+            }`}
+          >
             <a
               href="#home"
               onClick={(event) => handleMenuClick(event, "#home")}
@@ -188,10 +310,20 @@ export default function LandingPage() {
                   key={menu.name}
                   href={menu.href}
                   onClick={(event) => handleMenuClick(event, menu.href)}
-                  className="group relative text-sm font-semibold text-slate-600 hover:text-red-500 transition-all duration-300"
+                  className={`group relative text-sm font-semibold transition-all duration-300 ${
+                    activeSection === menu.href.replace("#", "")
+                      ? "text-red-500"
+                      : "text-slate-600 hover:text-red-500"
+                  }`}
                 >
                   {menu.name}
-                  <span className="absolute -bottom-2 left-0 h-0.5 w-0 bg-red-500 rounded-full transition-all duration-300 group-hover:w-full" />
+                  <span
+                    className={`absolute -bottom-2 left-0 h-0.5 bg-red-500 rounded-full transition-all duration-300 ${
+                      activeSection === menu.href.replace("#", "")
+                        ? "w-full"
+                        : "w-0 group-hover:w-full"
+                    }`}
+                  />
                 </a>
               ))}
             </div>
@@ -231,7 +363,11 @@ export default function LandingPage() {
                       key={menu.name}
                       href={menu.href}
                       onClick={(event) => handleMenuClick(event, menu.href)}
-                      className="rounded-2xl px-4 py-3 text-sm font-bold text-slate-600 hover:bg-red-50 hover:text-red-500 transition-all duration-300"
+                      className={`rounded-2xl px-4 py-3 text-sm font-bold transition-all duration-300 ${
+                        activeSection === menu.href.replace("#", "")
+                          ? "bg-red-50 text-red-500"
+                          : "text-slate-600 hover:bg-red-50 hover:text-red-500"
+                      }`}
                     >
                       {menu.name}
                     </a>
@@ -319,6 +455,17 @@ export default function LandingPage() {
                 <p className="text-sm sm:text-base font-bold text-slate-600">
                   5000+ pelanggan puas mempercayakan servis di Auto Tech
                 </p>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                {heroStats.map((stat) => (
+                  <div
+                    key={stat}
+                    className="rounded-full border border-slate-200 bg-white/80 px-4 py-2 text-sm font-black text-slate-700 shadow-sm backdrop-blur-xl hover:border-red-200 hover:text-red-500 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                  >
+                    {stat}
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -475,7 +622,7 @@ export default function LandingPage() {
                   key={service.title}
                   className="group rounded-3xl bg-white border border-slate-200 p-7 shadow-sm hover:shadow-xl hover:-translate-y-2 hover:border-red-200 transition-all duration-300"
                 >
-                  <div className="h-14 w-14 rounded-2xl bg-red-50 text-red-500 flex items-center justify-center text-xl group-hover:bg-red-500 group-hover:text-white transition-all duration-300">
+                  <div className="h-14 w-14 rounded-2xl bg-red-50 text-red-500 flex items-center justify-center text-xl group-hover:bg-red-500 group-hover:text-white group-hover:scale-110 transition-all duration-300">
                     <Icon />
                   </div>
 
@@ -520,9 +667,9 @@ export default function LandingPage() {
                   return (
                     <div
                       key={stat.label}
-                      className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm hover:bg-white hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+                      className="group rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm hover:bg-white hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
                     >
-                      <div className="h-12 w-12 rounded-2xl bg-red-50 text-red-500 flex items-center justify-center">
+                      <div className="h-12 w-12 rounded-2xl bg-red-50 text-red-500 flex items-center justify-center group-hover:scale-110 transition-all duration-300">
                         <Icon />
                       </div>
 
@@ -565,8 +712,8 @@ export default function LandingPage() {
                     <div className="hidden md:block absolute top-12 left-[calc(50%+2rem)] right-[-2.5rem] h-px bg-red-200" />
                   )}
 
-                  <div className="relative h-full rounded-3xl border border-slate-200 bg-slate-50 p-7 text-center shadow-sm hover:bg-white hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                    <div className="mx-auto h-16 w-16 rounded-3xl bg-red-500 text-white flex items-center justify-center text-xl shadow-sm shadow-red-500/30">
+                  <div className="group relative h-full rounded-3xl border border-slate-200 bg-slate-50 p-7 text-center shadow-sm hover:bg-white hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                    <div className="mx-auto h-16 w-16 rounded-3xl bg-red-500 text-white flex items-center justify-center text-xl shadow-sm shadow-red-500/30 group-hover:scale-110 transition-all duration-300">
                       <Icon />
                     </div>
 
@@ -622,7 +769,7 @@ export default function LandingPage() {
                   key={benefit.title}
                   className="group rounded-3xl border border-slate-200 bg-white p-7 shadow-sm hover:bg-red-500 hover:border-red-500 hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
                 >
-                  <div className="h-14 w-14 rounded-2xl bg-red-50 text-red-500 flex items-center justify-center text-xl group-hover:bg-white/20 group-hover:text-white transition-all duration-300">
+                  <div className="h-14 w-14 rounded-2xl bg-red-50 text-red-500 flex items-center justify-center text-xl group-hover:bg-white/20 group-hover:text-white group-hover:scale-110 transition-all duration-300">
                     <Icon />
                   </div>
 
@@ -639,6 +786,297 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* PROMO UNGGULAN */}
+      <section id="promo" className="bg-white py-24 lg:py-28">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+            <div className="max-w-2xl">
+              <p className="text-sm font-black uppercase tracking-widest text-red-500">
+                Promo Unggulan
+              </p>
+
+              <h2 className="mt-3 text-4xl sm:text-5xl font-black tracking-tight text-slate-950">
+                Promo aktif untuk pengalaman servis yang lebih hemat.
+              </h2>
+            </div>
+
+            <div className="rounded-2xl border border-red-200 bg-red-50 px-5 py-3 text-sm font-black text-red-600">
+              Khusus Member Auto Tech
+            </div>
+          </div>
+
+          <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {promos.map((promo) => {
+              const Icon = promo.icon;
+
+              return (
+                <div
+                  key={promo.title}
+                  className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm hover:border-red-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="h-14 w-14 rounded-2xl bg-red-50 text-red-500 flex items-center justify-center text-xl group-hover:bg-red-500 group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                      <Icon />
+                    </div>
+
+                    <span className="rounded-full bg-red-50 px-3 py-1 text-xs font-black text-red-500 border border-red-100">
+                      {promo.badge}
+                    </span>
+                  </div>
+
+                  <h3 className="mt-7 text-xl font-black text-slate-900">
+                    {promo.title}
+                  </h3>
+
+                  <p className="mt-3 leading-7 text-slate-500">
+                    {promo.desc}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONI */}
+      <section className="bg-slate-50 py-24 lg:py-28">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <p className="text-sm font-black uppercase tracking-widest text-red-500">
+              Testimoni Pelanggan
+            </p>
+
+            <h2 className="mt-3 text-4xl sm:text-5xl font-black tracking-tight text-slate-950">
+              Dipercaya pelanggan yang ingin servis lebih praktis.
+            </h2>
+          </div>
+
+          <div className="mt-14 grid lg:grid-cols-3 gap-6">
+            {testimonials.map((testimonial) => (
+              <div
+                key={testimonial.name}
+                className="group rounded-3xl border border-slate-200 bg-white p-7 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+              >
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className="h-14 w-14 rounded-2xl bg-red-500 text-white flex items-center justify-center font-black shadow-sm shadow-red-500/30 group-hover:scale-110 transition-all duration-300">
+                      {testimonial.avatar}
+                    </div>
+
+                    <div>
+                      <h3 className="font-black text-slate-900">
+                        {testimonial.name}
+                      </h3>
+                      <p className="text-sm font-bold text-slate-500">
+                        Member Auto Tech
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-6 flex gap-1 text-amber-400">
+                  {[...Array(testimonial.rating)].map((_, index) => (
+                    <FaStar key={index} />
+                  ))}
+                </div>
+
+                <p className="mt-5 leading-8 text-slate-600">
+                  "{testimonial.comment}"
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-slate-50 py-24 lg:py-28">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-[2rem] bg-red-500 p-8 sm:p-12 lg:p-16 text-white shadow-2xl shadow-red-500/20">
+            <div className="absolute -right-10 -top-10 h-56 w-56 rounded-full bg-white/10 blur-2xl" />
+            <div className="absolute -left-16 bottom-0 h-48 w-48 rounded-full bg-red-700/20 blur-2xl" />
+
+            <div className="relative grid lg:grid-cols-[1fr_auto] gap-8 items-center">
+              <div>
+                <p className="text-sm font-black uppercase tracking-widest text-red-100">
+                  Gabung Sekarang
+                </p>
+
+                <h2 className="mt-3 text-4xl sm:text-5xl font-black tracking-tight">
+                  Siap menjadi Member Auto Tech?
+                </h2>
+
+                <p className="mt-5 max-w-2xl text-lg leading-8 text-red-50">
+                  Daftar sebagai member untuk menikmati booking prioritas,
+                  reward point, promo eksklusif, dan riwayat servis digital.
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row lg:flex-col gap-3">
+                <Link
+                  to="/register"
+                  className="inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-7 py-4 text-red-600 font-black shadow-sm hover:scale-[1.03] hover:shadow-xl transition-all duration-300"
+                >
+                  Daftar Member
+                  <FaArrowRight className="text-sm" />
+                </Link>
+
+                <Link
+                  to="/login"
+                  className="inline-flex items-center justify-center rounded-2xl border border-white/40 bg-white/10 px-7 py-4 text-white font-black hover:bg-red-600 hover:shadow-xl hover:scale-[1.03] transition-all duration-300"
+                >
+                  Login
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer id="about" className="bg-slate-950 text-slate-400">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-16 pb-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+            <div>
+              <div className="flex items-center gap-3">
+                <div className="h-11 w-11 rounded-2xl bg-red-500 text-white flex items-center justify-center shadow-sm shadow-red-500/30">
+                  <FaTools />
+                </div>
+
+                <h3 className="text-2xl font-black tracking-tight text-white">
+                  AUTO
+                  <span className="text-red-500">TECH</span>
+                </h3>
+              </div>
+
+              <p className="mt-5 leading-7">
+                Auto Tech CRM adalah platform bengkel modern untuk mengelola
+                servis, pelanggan, kendaraan, membership, dan reward.
+              </p>
+
+              <div className="mt-6 flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-4">
+                <FaClock className="mt-1 text-red-400" />
+                <div>
+                  <p className="font-black text-white">Jam Operasional</p>
+                  <p className="mt-1 text-sm">Senin - Sabtu, 08.00 - 17.00 WIB</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="font-black text-white">Menu</h4>
+
+              <div className="mt-5 grid gap-3">
+                {[
+                  { name: "Home", href: "#home" },
+                  { name: "Layanan", href: "#layanan" },
+                  { name: "Membership", href: "#membership" },
+                  { name: "Promo", href: "#promo" },
+                ].map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    onClick={(event) => handleMenuClick(event, item.href)}
+                    className="hover:text-red-400 transition-colors duration-300"
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div id="contact">
+              <h4 className="font-black text-white">Kontak</h4>
+
+              <div className="mt-5 grid gap-4">
+                <p className="flex items-start gap-3">
+                  <FaEnvelope className="mt-1 text-red-400" />
+                  hello@autotech.id
+                </p>
+
+                <p className="flex items-start gap-3">
+                  <FaPhoneAlt className="mt-1 text-red-400" />
+                  0822 8666 7590
+                </p>
+
+                <p className="flex items-start gap-3">
+                  <FaMapMarkerAlt className="mt-1 text-red-400" />
+                  Jl. Auto Tech No. 10, Pekanbaru
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="font-black text-white">Media Sosial</h4>
+
+              <div className="mt-5 flex gap-3">
+                {[
+                  { name: "Instagram", icon: FaInstagram, href: "#contact" },
+                  { name: "Facebook", icon: FaFacebookF, href: "#contact" },
+                  {
+                    name: "WhatsApp",
+                    icon: FaWhatsapp,
+                    href: "https://wa.me/6282286667590?text=Halo%20Admin%20Auto%20Tech,%20saya%20ingin%20bertanya%20mengenai%20layanan%20bengkel.",
+                  },
+                ].map((social) => {
+                  const Icon = social.icon;
+                  const isWhatsApp = social.name === "WhatsApp";
+
+                  return (
+                    <a
+                      key={social.name}
+                      href={social.href}
+                      onClick={
+                        isWhatsApp
+                          ? undefined
+                          : (event) => handleMenuClick(event, social.href)
+                      }
+                      target={isWhatsApp ? "_blank" : undefined}
+                      rel={isWhatsApp ? "noreferrer" : undefined}
+                      className="h-11 w-11 rounded-2xl border border-white/10 bg-white/5 text-white flex items-center justify-center hover:bg-red-500 hover:border-red-500 hover:-translate-y-1 transition-all duration-300"
+                      aria-label={social.name}
+                    >
+                      <Icon />
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12 border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between gap-4 text-sm">
+            <p>© 2026 Auto Tech CRM. All rights reserved.</p>
+            <p>Modern Workshop Management System</p>
+          </div>
+        </div>
+      </footer>
+
+      {/* FLOATING WHATSAPP */}
+      <a
+        href="https://wa.me/6282286667590?text=Halo%20Admin%20Auto%20Tech,%20saya%20ingin%20bertanya%20mengenai%20layanan%20bengkel."
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Chat Admin Bengkel"
+        className="group fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full bg-green-500 text-white flex items-center justify-center text-2xl shadow-lg shadow-green-500/30 animate-pulse hover:bg-green-600 hover:scale-110 hover:shadow-2xl hover:shadow-green-500/40 transition-all duration-300"
+      >
+        <FaWhatsapp />
+
+        <span className="pointer-events-none absolute right-16 top-1/2 -translate-y-1/2 whitespace-nowrap rounded-2xl bg-slate-900 px-4 py-2 text-sm font-bold text-white opacity-0 shadow-lg transition-all duration-300 group-hover:opacity-100">
+          Chat Admin Bengkel
+        </span>
+      </a>
+
+      {showBackToTop && (
+        <button
+          type="button"
+          onClick={scrollToTop}
+          aria-label="Back to top"
+          className="fixed bottom-24 right-6 z-50 h-12 w-12 rounded-full border border-slate-200 bg-white text-red-500 flex items-center justify-center shadow-lg hover:bg-red-500 hover:text-white hover:scale-110 hover:shadow-xl transition-all duration-300"
+        >
+          <FaArrowUp />
+        </button>
+      )}
     </div>
   );
 }

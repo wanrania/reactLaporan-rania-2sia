@@ -1,347 +1,333 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
-  FaTools,
-  FaCar,
-  FaGift,
-  FaUserShield,
   FaArrowRight,
+  FaBars,
+  FaBolt,
+  FaCalendarCheck,
+  FaChartLine,
+  FaCheckCircle,
+  FaGift,
+  FaStar,
+  FaTimes,
+  FaTools,
+  FaUsers,
 } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
 
 export default function LandingPage() {
-  const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const menus = [
+    { name: "Home", href: "#home" },
+    { name: "Layanan", href: "#home" },
+    { name: "Membership", href: "#home" },
+    { name: "Promo", href: "#home" },
+    { name: "Tentang Kami", href: "#home" },
+    { name: "Contact", href: "#home" },
+  ];
+
+  const handleMenuClick = (event, href) => {
+    event.preventDefault();
+
+    const target = document.querySelector(href);
+
+    if (target) {
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+
+      window.history.pushState(null, "", href);
+    }
+
+    setIsMenuOpen(false);
+  };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-slate-50 text-slate-900 scroll-smooth">
       {/* NAVBAR */}
-      <nav className="sticky top-0 z-50 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <h1 className="text-3xl font-black">
-            AUTO
-            <span className="text-red-500">TECH</span>
-          </h1>
-
-          <div className="flex gap-3">
-            <button
-              onClick={() => navigate("/login")}
-              className="px-5 py-2 rounded-xl border border-slate-200 font-medium"
+      <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-sm">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="flex h-20 items-center justify-between">
+            <a
+              href="#home"
+              onClick={(event) => handleMenuClick(event, "#home")}
+              className="flex items-center gap-3"
             >
-              Login
-            </button>
+              <div className="h-11 w-11 rounded-2xl bg-red-500 text-white flex items-center justify-center shadow-sm shadow-red-500/30">
+                <FaTools />
+              </div>
+
+              <h1 className="text-2xl sm:text-3xl font-black tracking-tight">
+                AUTO
+                <span className="text-red-500">TECH</span>
+              </h1>
+            </a>
+
+            <div className="hidden lg:flex items-center gap-8">
+              {menus.map((menu) => (
+                <a
+                  key={menu.name}
+                  href={menu.href}
+                  onClick={(event) => handleMenuClick(event, menu.href)}
+                  className="group relative text-sm font-semibold text-slate-600 hover:text-red-500 transition-all duration-300"
+                >
+                  {menu.name}
+                  <span className="absolute -bottom-2 left-0 h-0.5 w-0 bg-red-500 rounded-full transition-all duration-300 group-hover:w-full" />
+                </a>
+              ))}
+            </div>
+
+            <div className="hidden lg:flex items-center gap-3">
+              <Link
+                to="/login"
+                className="px-5 py-3 rounded-2xl border border-slate-200 text-slate-700 font-bold hover:border-red-200 hover:text-red-500 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              >
+                Masuk
+              </Link>
+
+              <Link
+                to="/register"
+                className="px-5 py-3 rounded-2xl bg-red-500 text-white font-bold shadow-sm shadow-red-500/30 hover:bg-red-600 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              >
+                Daftar Member
+              </Link>
+            </div>
 
             <button
-              onClick={() => navigate("/register")}
-              className="px-5 py-2 rounded-xl bg-red-500 text-white font-medium"
+              type="button"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="lg:hidden h-11 w-11 rounded-2xl border border-slate-200 bg-white flex items-center justify-center text-slate-700 shadow-sm transition-all duration-300 hover:border-red-200 hover:text-red-500"
+              aria-label="Toggle navigation menu"
             >
-              Daftar Member
+              {isMenuOpen ? <FaTimes /> : <FaBars />}
             </button>
           </div>
+
+          {isMenuOpen && (
+            <div className="lg:hidden pb-5">
+              <div className="rounded-3xl border border-slate-200 bg-white p-3 shadow-lg">
+                <div className="grid gap-1">
+                  {menus.map((menu) => (
+                    <a
+                      key={menu.name}
+                      href={menu.href}
+                      onClick={(event) => handleMenuClick(event, menu.href)}
+                      className="rounded-2xl px-4 py-3 text-sm font-bold text-slate-600 hover:bg-red-50 hover:text-red-500 transition-all duration-300"
+                    >
+                      {menu.name}
+                    </a>
+                  ))}
+                </div>
+
+                <div className="grid grid-cols-2 gap-3 pt-3 mt-3 border-t border-slate-100">
+                  <Link
+                    to="/login"
+                    className="text-center px-4 py-3 rounded-2xl border border-slate-200 font-bold text-slate-700"
+                  >
+                    Masuk
+                  </Link>
+
+                  <Link
+                    to="/register"
+                    className="text-center px-4 py-3 rounded-2xl bg-red-500 font-bold text-white"
+                  >
+                    Daftar
+                  </Link>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
       {/* HERO */}
-      <section className="bg-gradient-to-br from-red-500 to-red-700 text-white">
-        <div className="max-w-7xl mx-auto px-6 py-24">
-          <div className="max-w-3xl">
-            <span className="bg-white/20 px-4 py-2 rounded-full text-sm">
-              Bengkel Digital Modern
-            </span>
-
-            <h1 className="text-6xl font-black mt-6 leading-tight">
-              Servis Kendaraan
-              <br />
-              Lebih Mudah &
-              <br />
-              Terpercaya
-            </h1>
-
-            <p className="mt-6 text-red-100 text-lg">
-              Kelola servis kendaraan, booking online, reward point, promo
-              member, dan riwayat servis dalam satu aplikasi.
-            </p>
-
-            <div className="flex gap-4 mt-8">
-              <button
-                onClick={() => navigate("/register")}
-                className="bg-white text-red-600 px-6 py-4 rounded-2xl font-bold"
-              >
-                Gabung Member
-              </button>
-
-              <button
-                onClick={() => navigate("/login")}
-                className="border border-white px-6 py-4 rounded-2xl font-bold"
-              >
-                Login Sekarang
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* LAYANAN */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center">Layanan Kami</h2>
-
-          <div className="grid md:grid-cols-3 gap-8 mt-12">
-            <div className="bg-white border border-slate-200 p-8 rounded-3xl">
-              <FaTools className="text-4xl text-red-500 mb-4" />
-              <h3 className="font-bold text-xl">Servis Berkala</h3>
-              <p className="mt-3 text-slate-500">
-                Perawatan rutin kendaraan agar tetap prima.
-              </p>
-            </div>
-
-            <div className="bg-white border border-slate-200 p-8 rounded-3xl">
-              <FaCar className="text-4xl text-red-500 mb-4" />
-              <h3 className="font-bold text-xl">Tune Up Kendaraan</h3>
-              <p className="mt-3 text-slate-500">
-                Meningkatkan performa kendaraan Anda.
-              </p>
-            </div>
-
-            <div className="bg-white border border-slate-200 p-8 rounded-3xl">
-              <FaGift className="text-4xl text-red-500 mb-4" />
-              <h3 className="font-bold text-xl">Reward Member</h3>
-              <p className="mt-3 text-slate-500">
-                Kumpulkan point setiap transaksi.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* BOOKING ONLINE */}
-      <section className="bg-red-50 py-20">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold">Booking Servis Online</h2>
-
-          <p className="mt-4 text-slate-500 max-w-2xl mx-auto">
-            Tidak perlu antri. Pilih layanan, jadwal, dan kendaraan langsung
-            dari aplikasi.
-          </p>
-
-          <div className="grid md:grid-cols-4 gap-6 mt-12">
-            <div className="bg-white p-6 rounded-3xl shadow-sm">
-              1️⃣ Pilih Kendaraan
-            </div>
-
-            <div className="bg-white p-6 rounded-3xl shadow-sm">
-              2️⃣ Pilih Layanan
-            </div>
-
-            <div className="bg-white p-6 rounded-3xl shadow-sm">
-              3️⃣ Tentukan Jadwal
-            </div>
-
-            <div className="bg-white p-6 rounded-3xl shadow-sm">
-              4️⃣ Konfirmasi Booking
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* MEMBER BENEFIT */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center">
-            Keuntungan Menjadi Member
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
-            <div className="border rounded-3xl p-8">🎁 Reward Point</div>
-
-            <div className="border rounded-3xl p-8">📅 Booking Prioritas</div>
-
-            <div className="border rounded-3xl p-8">💰 Promo Eksklusif</div>
-
-            <div className="border rounded-3xl p-8">🔔 Reminder Servis</div>
-
-            <div className="border rounded-3xl p-8">
-              📄 Riwayat Servis Digital
-            </div>
-
-            <div className="border rounded-3xl p-8">🎂 Voucher Ulang Tahun</div>
-          </div>
-        </div>
-      </section>
-
-      {/* KEUNGGULAN */}
-      <section className="bg-slate-50 py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center">Kenapa Auto Tech?</h2>
-
-          <div className="grid md:grid-cols-4 gap-6 mt-12">
-            <div className="bg-white p-6 rounded-2xl shadow-sm">
-              <h3 className="text-3xl font-bold text-red-500">1000+</h3>
-              <p>Pelanggan Aktif</p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl shadow-sm">
-              <h3 className="text-3xl font-bold text-red-500">5000+</h3>
-              <p>Servis Selesai</p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl shadow-sm">
-              <h3 className="text-3xl font-bold text-red-500">98%</h3>
-              <p>Kepuasan Pelanggan</p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl shadow-sm">
-              <h3 className="text-3xl font-bold text-red-500">24/7</h3>
-              <p>Support Online</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PROMO */}
-      <section className="bg-slate-50 py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center">Promo Terbaru</h2>
-
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
-            <div className="bg-red-500 text-white p-8 rounded-3xl">
-              <h3 className="text-2xl font-bold">Diskon Oli 20%</h3>
-
-              <p className="mt-3">Berlaku untuk seluruh member.</p>
-            </div>
-
-            <div className="bg-blue-500 text-white p-8 rounded-3xl">
-              <h3 className="text-2xl font-bold">Gratis Cuci Motor</h3>
-
-              <p className="mt-3">Untuk transaksi minimal Rp150.000</p>
-            </div>
-
-            <div className="bg-green-500 text-white p-8 rounded-3xl">
-              <h3 className="text-2xl font-bold">Cashback Rp50.000</h3>
-
-              <p className="mt-3">Khusus member Gold.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* TESTIMONI */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center">
-            Testimoni Pelanggan
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-8 mt-12">
-            <div className="border border-slate-200 p-6 rounded-3xl">
-              ⭐⭐⭐⭐⭐
-              <p className="mt-4 text-slate-600">
-                Pelayanannya cepat dan hasil servis memuaskan.
-              </p>
-              <h4 className="mt-4 font-bold">Budi Santoso</h4>
-            </div>
-
-            <div className="border border-slate-200 p-6 rounded-3xl">
-              ⭐⭐⭐⭐⭐
-              <p className="mt-4 text-slate-600">
-                Booking online sangat membantu.
-              </p>
-              <h4 className="mt-4 font-bold">Rina Amelia</h4>
-            </div>
-
-            <div className="border border-slate-200 p-6 rounded-3xl">
-              ⭐⭐⭐⭐⭐
-              <p className="mt-4 text-slate-600">
-                Point reward bisa ditukar promo.
-              </p>
-              <h4 className="mt-4 font-bold">Andi Saputra</h4>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center">Pertanyaan Umum</h2>
-
-          <div className="space-y-4 mt-10">
-            <div className="bg-white p-6 rounded-2xl">
-              <h3 className="font-bold">Apakah harus menjadi member?</h3>
-
-              <p className="text-slate-500 mt-2">
-                Tidak, namun member mendapatkan banyak keuntungan tambahan.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl">
-              <h3 className="font-bold">Bagaimana mendapatkan point?</h3>
-
-              <p className="text-slate-500 mt-2">
-                Setiap transaksi servis akan mendapatkan reward point.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl">
-              <h3 className="font-bold">Apakah point dapat ditukar?</h3>
-
-              <p className="text-slate-500 mt-2">
-                Ya, point dapat ditukar dengan voucher dan promo.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA MEMBER */}
-      <section className="bg-red-500 text-white py-20">
-        <div className="max-w-5xl mx-auto text-center px-6">
-          <FaUserShield className="mx-auto text-6xl mb-6" />
-
-          <h2 className="text-5xl font-black">Jadilah Member Sekarang</h2>
-
-          <p className="mt-5 text-red-100">
-            Dapatkan promo eksklusif, reward point, dan booking servis online.
-          </p>
-
-          <button
-            onClick={() => navigate("/register")}
-            className="mt-8 bg-white text-red-600 px-8 py-4 rounded-2xl font-bold inline-flex items-center gap-3"
-          >
-            Daftar Sekarang
-            <FaArrowRight />
-          </button>
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer className="bg-slate-900 text-slate-400 py-10">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h3 className="text-white text-2xl font-bold">AUTO TECH CRM</h3>
-
-          <p className="mt-3">Sistem Manajemen Bengkel Berbasis CRM</p>
-
-          <p className="mt-6 text-sm">© 2026 Auto Tech. All Rights Reserved.</p>
-        </div>
-      </footer>
-
-      <a
-        href="https://wa.me/6281234567890"
-        target="_blank"
-        rel="noreferrer"
-        className="
-  fixed
-  bottom-6
-  right-6
-  bg-green-500
-  text-white
-  p-4
-  rounded-full
-  shadow-xl
-  hover:scale-110
-  transition
-  z-50
-"
+      <section
+        id="home"
+        className="relative min-h-[calc(100vh-80px)] overflow-hidden bg-gradient-to-br from-white via-red-50 to-slate-50"
       >
-        💬
-      </a>
+        <div className="absolute inset-x-0 top-0 h-40 bg-white/70" />
+
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-20 lg:py-28">
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
+            <div>
+              {/* PRE-TITLE */}
+              <div className="inline-flex items-center gap-2 rounded-full bg-red-100 text-red-600 px-4 py-2 text-sm font-bold border border-red-200 shadow-sm">
+                <FaBolt className="text-xs" />
+                Bengkel Digital Modern
+              </div>
+
+              {/* HEADLINE */}
+              <h2 className="mt-7 max-w-4xl text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.02] text-slate-950">
+                Servis Kendaraan
+                <br />
+                Lebih <span className="text-red-500">Mudah</span>
+                <br />
+                <span className="text-red-500">Cepat</span> dan Terpercaya
+              </h2>
+
+              {/* SUBHEADLINE */}
+              <p className="mt-7 max-w-2xl text-lg sm:text-xl leading-8 text-slate-600">
+                Auto Tech menyatukan booking online, membership, reward,
+                riwayat servis, dan promo dalam satu pengalaman bengkel modern
+                yang rapi dan mudah dipantau.
+              </p>
+
+              {/* CTA */}
+              <div className="mt-9 flex flex-col sm:flex-row gap-4">
+                <Link
+                  to="/register"
+                  className="inline-flex items-center justify-center gap-3 rounded-2xl bg-red-500 px-7 py-4 text-white font-black shadow-sm shadow-red-500/30 hover:bg-red-600 hover:scale-[1.03] hover:shadow-xl transition-all duration-300"
+                >
+                  Daftar Member
+                  <FaArrowRight className="text-sm" />
+                </Link>
+
+                <Link
+                  to="/login"
+                  className="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-7 py-4 text-slate-700 font-black hover:border-red-200 hover:text-red-500 hover:scale-[1.03] hover:shadow-xl transition-all duration-300"
+                >
+                  Masuk
+                </Link>
+              </div>
+
+              <div className="mt-9 flex flex-col sm:flex-row sm:items-center gap-4">
+                <div className="flex text-amber-400">
+                  {[...Array(5)].map((_, index) => (
+                    <FaStar key={index} />
+                  ))}
+                </div>
+
+                <p className="text-sm sm:text-base font-bold text-slate-600">
+                  5000+ pelanggan puas mempercayakan servis di Auto Tech
+                </p>
+              </div>
+            </div>
+
+            {/* VISUAL DASHBOARD */}
+            <div className="relative">
+              <div className="absolute -inset-6 rounded-[2rem] bg-red-200/40 blur-3xl" />
+
+              <div className="relative rounded-[2rem] border border-white/70 bg-white/70 backdrop-blur-2xl p-4 sm:p-5 shadow-2xl shadow-red-500/10">
+                <div className="rounded-[1.5rem] border border-slate-200 bg-slate-950 p-4 sm:p-5 overflow-hidden">
+                  <div className="flex items-center justify-between mb-6">
+                    <div>
+                      <p className="text-slate-400 text-xs font-bold uppercase tracking-widest">
+                        Auto Tech CRM
+                      </p>
+                      <h3 className="text-white text-xl font-black mt-1">
+                        Workshop Overview
+                      </h3>
+                    </div>
+
+                    <div className="flex gap-1.5">
+                      <span className="h-3 w-3 rounded-full bg-red-400" />
+                      <span className="h-3 w-3 rounded-full bg-amber-400" />
+                      <span className="h-3 w-3 rounded-full bg-green-400" />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="rounded-3xl bg-white/10 border border-white/10 p-4 backdrop-blur-xl">
+                      <div className="flex items-center justify-between">
+                        <FaCalendarCheck className="text-red-300" />
+                        <span className="text-green-300 text-xs font-bold">
+                          +18%
+                        </span>
+                      </div>
+                      <p className="text-slate-400 text-xs mt-4">
+                        Booking Hari Ini
+                      </p>
+                      <h4 className="text-white text-3xl font-black">24</h4>
+                    </div>
+
+                    <div className="rounded-3xl bg-white/10 border border-white/10 p-4 backdrop-blur-xl">
+                      <div className="flex items-center justify-between">
+                        <FaUsers className="text-blue-300" />
+                        <span className="text-blue-200 text-xs font-bold">
+                          aktif
+                        </span>
+                      </div>
+                      <p className="text-slate-400 text-xs mt-4">
+                        Member Aktif
+                      </p>
+                      <h4 className="text-white text-3xl font-black">1.2K</h4>
+                    </div>
+
+                    <div className="col-span-2 rounded-3xl bg-white p-4 shadow-sm">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="text-slate-500 text-xs font-bold">
+                            Grafik Servis
+                          </p>
+                          <h4 className="text-slate-900 text-xl font-black">
+                            458 servis bulan ini
+                          </h4>
+                        </div>
+                        <FaChartLine className="text-red-500" />
+                      </div>
+
+                      <div className="mt-6 flex items-end gap-2 h-28">
+                        {[42, 65, 50, 82, 58, 74, 94, 70].map(
+                          (height, index) => (
+                            <div
+                              key={index}
+                              className="flex-1 rounded-t-xl bg-gradient-to-t from-red-500 to-red-300"
+                              style={{ height: `${height}%` }}
+                            />
+                          ),
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-3 grid grid-cols-2 gap-3">
+                    <div className="rounded-3xl bg-red-500 p-4 text-white">
+                      <FaGift />
+                      <p className="text-red-100 text-xs mt-3">
+                        Reward Point
+                      </p>
+                      <h4 className="text-2xl font-black">8.540</h4>
+                    </div>
+
+                    <div className="rounded-3xl bg-white/10 border border-white/10 p-4 text-white">
+                      <FaCheckCircle className="text-green-300" />
+                      <p className="text-slate-400 text-xs mt-3">
+                        Service Selesai
+                      </p>
+                      <h4 className="text-2xl font-black">98%</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="hidden sm:block absolute -left-8 top-12 rounded-3xl border border-white/70 bg-white/80 backdrop-blur-xl p-4 shadow-xl animate-pulse">
+                <p className="text-xs font-bold text-slate-500">
+                  Booking Hari Ini
+                </p>
+                <div className="mt-2 flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-2xl bg-red-50 text-red-500 flex items-center justify-center">
+                    <FaCalendarCheck />
+                  </div>
+                  <strong className="text-2xl">24</strong>
+                </div>
+              </div>
+
+              <div className="hidden sm:block absolute -right-5 bottom-14 rounded-3xl border border-white/70 bg-white/80 backdrop-blur-xl p-4 shadow-xl">
+                <p className="text-xs font-bold text-slate-500">
+                  Reward Point
+                </p>
+                <div className="mt-2 flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-2xl bg-amber-50 text-amber-500 flex items-center justify-center">
+                    <FaGift />
+                  </div>
+                  <strong className="text-2xl">1.250</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

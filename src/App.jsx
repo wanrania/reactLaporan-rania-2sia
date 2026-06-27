@@ -106,6 +106,7 @@ function App() {
             <Route path="/admin" element={<Dashboard />} />
 
             {/* CRM */}
+            <Route path="/Dashboard" element={<Dashboard />} />
             <Route path="/customers" element={<Customers />} />
             <Route path="/customers/:id" element={<CustomerDetail />} />
             <Route path="/membership" element={<Membership />} />

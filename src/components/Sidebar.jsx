@@ -31,7 +31,7 @@ export default function AppSidebar() {
       items: [
         {
           name: "Dashboard",
-          path: "/",
+          path: "/Dashboard",
           icon: LayoutDashboard,
         },
         {
